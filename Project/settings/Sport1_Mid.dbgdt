@@ -933,7 +933,7 @@
                     <item>key</item>
                     <item>NO_ROW</item>
                     <item>key</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

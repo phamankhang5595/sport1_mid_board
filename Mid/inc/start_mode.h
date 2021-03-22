@@ -1,8 +1,9 @@
-#ifndef __SETUP_MODE_H__
-#define __SETUP_MODE_H__
+#ifndef __START_MODE_H__
+#define __START_MODE_H__
 /*******************************************************************************
  * Include file
  ******************************************************************************/
+#include "stdint.h"
 #include "keypad.h"
 #include "common.h"
 /*******************************************************************************
@@ -14,7 +15,7 @@
  * @param 
  * @param 
  */
-program_state_t setup_mode(run_mechine_data_t *mechineData);
+program_state_t start_mode();
 #endif
 /*******************************************************************************
  * EOF

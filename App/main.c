@@ -1,24 +1,35 @@
 /*
  * Copyright (c) 2021
- * Lumi, JSC.
+ * Vitech, JSC.
  * All Rights Reserved
  *
  *
  * Description:
  *
- * Author: Truongvv
+ * Author: Khangpa
  *
- * Last Changed By:  $Author: Truongvv $
+ * Last Changed By:  $Author: Khangpa $
  * Revision:         $Revision: xxx $
  * Last Changed:     $Date: xxx $
  */
 #include "keypad.h"
 #include "stdint.h"
-#include "exercise_mode.h"
 #include "common.h"
-char a;
+#include "systick.h"
+#include "start_mode.h"
+#include "setup_mode.h"
+#include "exercise_mode.h"
+/*******************************************************************************
+ * Definition
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Code
+ ******************************************************************************/
+
 int main(void)
 {
+    program_state_t state = START;
     run_mechine_data_t mechineData;
     mechineData.runEx = 1;
     mechineData.runSpeed = 1;
@@ -28,23 +39,24 @@ int main(void)
     char key;
     KEYPAD_Init();
     SYSTICK_Init();
-    /* INIT */
 	while(1)
     {
-        key = KEYPAD_ScanKey();
-        a=key;
-        if(key == '6')
-            exerciseMode();
-            /* Run mode */
-/*      if(key == Exkey)
-            Ex mode
-        if(key == Setupkey)
-            Setup mode  
-            */
-     
-     
-     
-     
-           /* netxt */
+       switch (state)
+       {
+            case START:
+                state = start_mode();
+                break;
+            case RUN:
+                break;
+            case STOP:
+                break;
+            case EXERCISE_SET:
+                state = exercise_mode(&mechineData);
+                break;
+            case USER_SET:
+                break;
+            default:
+                break;
+       }
 	}
 }

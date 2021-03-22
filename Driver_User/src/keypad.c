@@ -61,16 +61,16 @@ static void setColX(col_index index)
     {
     case (Col_1):
         /* code */
-        KEYPAD_SET_COL(Col_1);
+        KEYPAD_SET_COL(KEYPAD_COL_1);
         break;
     case Col_2:
-        KEYPAD_SET_COL(Col_2);
+        KEYPAD_SET_COL(KEYPAD_COL_2);
         break;
     case Col_3:
-        KEYPAD_SET_COL(Col_3);
+        KEYPAD_SET_COL(KEYPAD_COL_3);
         break;
     case Col_4:
-        KEYPAD_SET_COL(Col_4);
+        KEYPAD_SET_COL(KEYPAD_COL_4);
         break;
     default:
         break;
@@ -87,7 +87,10 @@ static uint32_t isKeyPressed()
 {
     uint8_t keyStatus = NOT_PRESS;
     setHighAllCol();
-    if(KEYPAD_READ_ROW(KEYPAD_ROW_1)||KEYPAD_READ_ROW(KEYPAD_ROW_2)||KEYPAD_READ_ROW(KEYPAD_ROW_3)||KEYPAD_READ_ROW(KEYPAD_ROW_4))
+    if( KEYPAD_READ_ROW(KEYPAD_ROW_1)||
+        KEYPAD_READ_ROW(KEYPAD_ROW_2)||
+        KEYPAD_READ_ROW(KEYPAD_ROW_3)||
+        KEYPAD_READ_ROW(KEYPAD_ROW_4) )
         keyStatus = PRESS;
     return keyStatus;
 }
@@ -182,31 +185,32 @@ char KEYPAD_ScanKey()
     uint32_t rowVal;
     if(isKeyPressed())
     {
+        /* Debounce time */
         SYSTICK_Delay_ms(20);
         if(isKeyPressed())
         {
             setColX(Col_1);
             rowVal = rowCheck();
             if(rowVal != NO_ROW)
-                key = Keypad_Button_Values[rowVal - 1][Col_1 - 1];
+                key = Keypad_Button_Values[rowVal][Col_1];
             else
             {
                 setColX(Col_2);
                 rowVal = rowCheck();
                 if(rowVal != NO_ROW)
-                    key = Keypad_Button_Values[rowVal - 1][Col_2 - 1];
+                    key = Keypad_Button_Values[rowVal][Col_2];
                 else
                 {
                     setColX(Col_3);
                     rowVal = rowCheck();
                     if(rowVal != NO_ROW)
-                        key = Keypad_Button_Values[rowVal - 1][Col_3 - 1];
+                        key = Keypad_Button_Values[rowVal][Col_3];
                     else
                     {
                         setHighAllCol();
                         rowVal = rowCheck();
                         if(rowVal != NO_ROW)
-                            key = Keypad_Button_Values[rowVal - 1][Col_4 - 1];
+                            key = Keypad_Button_Values[rowVal][Col_4];
                     }
                 }
 

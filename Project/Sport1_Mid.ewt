@@ -3078,24 +3078,36 @@
     </group>
     <group>
         <name>Mid</name>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\src\exercise_mode.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\inc\exercise_mode.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\src\run_mode.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\inc\run_mode.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\src\setup_mode.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Mid\inc\setup_mode.h</name>
-        </file>
+        <group>
+            <name>inc</name>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\exercise_mode.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\run_mode.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\setup_mode.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\start_mode.h</name>
+            </file>
+        </group>
+        <group>
+            <name>src</name>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\exercise_mode.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\run_mode.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\setup_mode.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\start_mode.c</name>
+            </file>
+        </group>
     </group>
     <group>
         <name>Startup</name>

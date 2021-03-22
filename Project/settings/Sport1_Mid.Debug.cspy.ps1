@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1\Project\settings\Sport1_Mid.Debug.general.xcl" --backend -f "D:\Vitech\sport1\Project\settings\Sport1_Mid.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" --backend -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1\Project\settings\Sport1_Mid.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\Vitech\sport1\Project\settings\Sport1_Mid.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
 }
