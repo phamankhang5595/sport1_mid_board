@@ -2,7 +2,7 @@
 /*******************************************************************************
  * Variable
  ******************************************************************************/
-static uint8_t change;
+extern uint8_t isDataChanged;
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -12,7 +12,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
     program_state_t stateReturn;
     char key;
     /* Show screen */
-    if(change == 0)
+    if(isDataChanged == 0)
     {
         updateCalo(mechineData->clo);
         updateDistance(mechineData->dis);
@@ -20,7 +20,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
         updateIncline(mechineData->incline);
         updateTime(mechineData->runTime.minute);
     }
-    change = 1;    
+    isDataChanged = 1;    
     /* Scan key */
     key = KEYPAD_ScanKey();
     switch (key)
@@ -30,7 +30,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             mechineData->runEx += 1;
             if(mechineData->runEx > 15)
                 mechineData->runEx = 1;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
         /* + key */
@@ -38,7 +38,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             mechineData->runTime.minute += 1;
             if(mechineData->runTime.minute > 120)
                 mechineData->runTime.minute = 120;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
         /* - key */
@@ -46,7 +46,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             mechineData->runTime.minute -= 1;
             if(mechineData->runTime.minute < 1)
                 mechineData->runTime.minute = 0;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
         /* up key */
@@ -54,15 +54,15 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             mechineData->runTime.minute += 1;
             if(mechineData->runTime.minute > 120)
                 mechineData->runTime.minute = 120;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
         /* down key */
         case 'B':
             mechineData->runTime.minute -= 1;
-            if(mechineData->runTime.minute < 0)
+            if(mechineData->runTime.minute < 1)
                 mechineData->runTime.minute = 0;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
         /* stop key */
@@ -70,16 +70,16 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             mechineData->runTime.minute += 1;
             if(mechineData->runTime.minute > 120)
                 mechineData->runTime.minute = 120;
-            change = 0;
+            isDataChanged = 0;
             stateReturn = START;
             break;
         /* run key */
         case '7':
-            change = 0;
+            isDataChanged = 0;
             stateReturn = RUN;
             break;
         default:
-            change = 0;
+            isDataChanged = 0;
             stateReturn = EXERCISE_SET;
             break;
     }
