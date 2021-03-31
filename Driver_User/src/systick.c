@@ -50,7 +50,8 @@ void SYSTICK_Delay_ms(uint32_t time_ms)
             t1 = SYSTICK_Get_Tick();
         }
         return;
-    }else
+    }
+    else
     {
         if(t1 > time_ms)
         {
@@ -63,7 +64,8 @@ void SYSTICK_Delay_ms(uint32_t time_ms)
                 t1 = SYSTICK_Get_Tick();
             }
             return;
-        }else
+        }
+        else
         {
             while(MAXTICK - t0 + t1 < time_ms)
             {

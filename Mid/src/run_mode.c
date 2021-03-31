@@ -5,83 +5,87 @@
 /*******************************************************************************
  * Variable
  ******************************************************************************/
-uint8_t isDataChange;
-
-#define YES     0
-#define NO      1
+uint32_t IsThisTheFirstRun;
 /*******************************************************************************
  * Code
  ******************************************************************************/
-program_state_t runMode(run_mechine_data_t *mechineData, program_state_t lastState)
+program_state_t runMode(run_mechine_data_t *mechineData)
 {
-    program_state_t stateReturn;
-    /* Stand by mode (3s)*/
-    if(lastState != RUN)
+    static program_state_t stateReturn;
+    char key = NO_KEY;
+    if(IsThisTheFirstRun == YES)
     {
-        /* show standby screen */
-        SYSTICK_Delay_ms(1000);
-        /* show standby screen */
-        SYSTICK_Delay_ms(1000);
-        /* show standby screen */
-        SYSTICK_Delay_ms(1000);
+        /* screen countdown 3s */
+        IsThisTheFirstRun = NO;
     }
-    /* Start run */
-    if(isDataChange == YES)
+
+    /* Check if setup run time */
+    if((mechineData->runTime > DEFAULT_RUN_TIME)/* && timer not start */)
+    {
+        /* Start timer count down */
+        /* interrup 1 time per sec: function minus run time and updatescreen */
+    }
+
+    /* update screen */
+    if(IsDataChanged == YES)
     {
         /* send data */
         /* show screen */
         updateIncline(mechineData->incline);
-        updateSpeed(mechineData->dataSpeed);
+        updateSpeed(mechineData->speed);
+        IsDataChanged = NO;
     }
-    isDataChange = NO;
-    char key = NO_KEY;
+    
+
+
     key = KEYPAD_ScanKey();
     switch (key)
     {
-    case '8':
-        /* stop mode */
-        stateReturn = STOP;
-        break;
-    case '1':
-        /* incline = 3 */
-        mechineData->incline = 3;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    case '2':
-        /* incline = 6 */
-        mechineData->incline = 6;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    case '3':
-        /* incline = 9 */
-        mechineData->incline = 9;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    case 'C':
-        /* speed = 3 */
-        mechineData->dataSpeed = 3;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    case 'D':
-        /* speed = 6 */
-        mechineData->dataSpeed = 6;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    case 'E':
-        /* speed = 9 */
-        mechineData->dataSpeed = 9;
-        stateReturn = RUN;
-        isDataChange = YES;
-        break;
-    default:
-        stateReturn = RUN;
-        isDataChange = NO;
-        break;
+        case STOP_KEY:
+            /* stop mode */
+            IsDataChanged = YES;
+            IsThisTheFirstRun = YES;
+            stateReturn = STOP;
+            break;
+        case INCLINE_3_KEY:
+            /* incline = 3 */
+            mechineData->incline = 3;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        case INCLINE_6_KEY:
+            /* incline = 6 */
+            mechineData->incline = 6;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        case INCLINE_9_KEY:
+            /* incline = 9 */
+            mechineData->incline = 9;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        case SPEED_3_KEY:
+            /* speed = 3 */
+            mechineData->speed = 3;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        case SPEED_6_KEY:
+            /* speed = 6 */
+            mechineData->speed = 6;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        case SPEED_9_KEY:
+            /* speed = 9 */
+            mechineData->speed = 9;
+            IsDataChanged = YES;
+            stateReturn = RUN;
+            break;
+        default:
+            stateReturn = RUN;
+            break;
     }
     return (stateReturn);
     /* Show screnn */

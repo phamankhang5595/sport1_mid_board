@@ -6,8 +6,8 @@
 #define HT1621_CS           GPIO_Pin_8   
 #define HT1621_RD           GPIO_Pin_9   
 #define HT1621_WR           GPIO_Pin_10   
-#define HT1621_DAT          GPIO_Pin_11   
-#define ENABLE_CLOCK_GPIOA  (RCC->APB2ENR|=(1<<2))   
+#define HT1621_DAT          GPIO_Pin_11
+#define ENABLE_CLOCK_GPIOA  (RCC->APB2ENR|=(1<<2))
    
 #define  DAT   1    //����   
 #define  COM   0    //����    
@@ -90,7 +90,7 @@ void write_mode(unsigned char MODE) //д��ģʽ,����or����
     delay(5);   
     GPIO_SetBits(GPIOA,HT1621_WR);                                  //  RW = 1;   
     delay(5);   
-}   
+}
    
 /*  
 * fq  
@@ -371,7 +371,7 @@ void lcd_show_data1(unsigned char *puts,uint8_t address)
 void lcd_send_data(unsigned char *data,uint8_t address)   
 {   
     char i = 0 ;   
-    unsigned char show_buf[SIZE_BUFF]='\0';   
+    unsigned char show_buf[SIZE_BUFF]={'\0'};   
      
     while(data[i]!='\0')                                             //ȡǰ��λ��ʾ��   
     {   

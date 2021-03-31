@@ -2188,16 +2188,10 @@
     <group>
         <name>Common</name>
         <file>
+            <name>$PROJ_DIR$\..\Common\common.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\Common\common.h</name>
-        </file>
-    </group>
-    <group>
-        <name>Device</name>
-        <file>
-            <name>$PROJ_DIR$\..\Device\screen.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Device\screen.h</name>
         </file>
     </group>
     <group>
@@ -2388,10 +2382,16 @@
                 <name>$PROJ_DIR$\..\Mid\inc\run_mode.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\Mid\inc\screen.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\Mid\inc\setup_mode.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\Mid\inc\start_mode.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\stop_mode.h</name>
             </file>
         </group>
         <group>
@@ -2403,10 +2403,16 @@
                 <name>$PROJ_DIR$\..\Mid\src\run_mode.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\Mid\src\screen.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\Mid\src\setup_mode.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\Mid\src\start_mode.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\stop_mode.c</name>
             </file>
         </group>
     </group>

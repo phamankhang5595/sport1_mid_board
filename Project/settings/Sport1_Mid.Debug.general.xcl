@@ -1,14 +1,14 @@
-"D:\iar\arm\bin\armproc.dll" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armproc.dll" 
 
-"D:\iar\arm\bin\armstlink2.dll" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armstlink2.dll" 
 
-"F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out" 
+"D:\Vitech\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out" 
 
---plugin="D:\iar\arm\bin\armbat.dll" 
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armbat.dll" 
 
---device_macro="D:\iar\arm\config\debugger\ST\STM32F1xx.dmac" 
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\config\debugger\ST\STM32F1xx.dmac" 
 
---flash_loader="D:\iar\arm\config\flashloader\ST\FlashSTM32F10xx8.board" 
+--flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\config\flashloader\ST\FlashSTM32F10xx8.board" 
 
 
 

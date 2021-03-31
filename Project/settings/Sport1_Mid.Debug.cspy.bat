@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\iar\common\bin\cspybat" -f "F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" --backend -f "F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" --backend -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\iar\common\bin\cspybat" -f "F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" "--debug_file=%~1" --backend -f "F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\Vitech\sport1_mid_board\Project\settings\Sport1_Mid.Debug.driver.xcl" 
 
 @echo off 
 :end

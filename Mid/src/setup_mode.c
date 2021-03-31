@@ -5,13 +5,13 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
-uint8_t modeState;
-uint8_t IsDataChanged;
+/* mode setup  */
+uint8_t ModeState;
 /*******************************************************************************
  * Definition
  ******************************************************************************/
-#define NO      1
-#define YES     0
+#define MAX_MODE    (2)
+
 /*******************************************************************************
  * Private func
  ******************************************************************************/
@@ -23,12 +23,24 @@ uint8_t IsDataChanged;
  */
 static void increase_val(run_mechine_data_t *mechineData)
 {
-    if(modeState == 0)
-        mechineData->runTime.minute += 1;
-    else if(modeState == 1)
-        mechineData->dis += 1;
-    else if(modeState == 2)
-        mechineData->clo += 1;
+    if(ModeState == 0)
+    {
+        mechineData->runTime += 1;
+        if(mechineData->runTime > MAX_RUN_TIME)
+            mechineData->runTime = MAX_RUN_TIME;            /* maximum runtime value */
+    }
+    else if(ModeState == 1)
+    {
+        mechineData->distance += 1;
+        if(mechineData->distance > MAX_DISTANCE)
+            mechineData->distance = MAX_DISTANCE;           /* maximum distance value */
+    }
+    else if(ModeState == 2)
+    {
+        mechineData->calo += 1;
+        if(mechineData->calo > MAX_CALO)
+            mechineData->calo = MAX_CALO;                   /* maximum distance value */
+    }
 }
 
 
@@ -40,12 +52,24 @@ static void increase_val(run_mechine_data_t *mechineData)
  */
 static void decrease_val(run_mechine_data_t *mechineData)
 {
-    if(modeState == 0)
-        mechineData->runTime.minute -= 1;
-    else if(modeState == 1)
-        mechineData->dis -= 1;
-    else if(modeState == 2)
-        mechineData->clo -= 1;
+    if(ModeState == 0)
+    {
+        mechineData->runTime -= 1;
+        if(mechineData->runTime < 1)
+            mechineData->runTime = 1;            /* minimum runtime value */
+    }
+    else if(ModeState == 1)
+    {
+        mechineData->distance -= 1;
+        if(mechineData->distance < 1)
+            mechineData->distance = 1;           /* minimum distance value */
+    }
+    else if(ModeState == 2)
+    {
+        mechineData->calo -= 1;
+        if(mechineData->calo < 1)
+            mechineData->calo = 1;               /* minimum distance value */
+    }
 }
 /*******************************************************************************
  * Code
@@ -64,56 +88,54 @@ program_state_t setup_mode(run_mechine_data_t *mechineData)
     /* Show screen */
     if(IsDataChanged == YES)
     {
-        updateCalo(mechineData->clo);
-        updateDistance(mechineData->dis);
-        //updateSpeed(mechineData->dataSpeed);
-        //updateIncline(mechineData->incline);
-        updateTime(mechineData->runTime.minute);
-    }
-    IsDataChanged = NO;    
+        updateCalo(mechineData->calo);
+        updateDistance(mechineData->distance);
+        updateTime(mechineData->runTime);
+        IsDataChanged = NO;
+    }   
     /* Scan key */
     key = KEYPAD_ScanKey();
     switch(key)
     {
-        case '9':
+        case SETUP_KEY:
             SYSTICK_Delay_ms(200);
-                modeState += 1;
+            ModeState += 1;
             stateReturn = USER_SET;
             break;
-        case '4':
+        case PLUS_KEY:
             increase_val(mechineData);
             IsDataChanged = YES;
             stateReturn = USER_SET;
             break;
-        case '5':
+        case MINUS_KEY:
             decrease_val(mechineData);
             IsDataChanged = YES;
             stateReturn = USER_SET;
             break;
-        case 'A':
+        case UP_KEY:
             increase_val(mechineData);
             IsDataChanged = YES;
             stateReturn = USER_SET;
             break;
-        case 'B':
+        case DOWN_KEY:
             decrease_val(mechineData);
             IsDataChanged = YES;
             stateReturn = USER_SET;
             break;
-        case '7':
+        case RUN_KEY:
             IsDataChanged = YES;
             stateReturn = RUN;
             break;
-        case '8':
+        case STOP_KEY:
             IsDataChanged = YES;
             stateReturn = START;
             break;
         default:
             stateReturn = USER_SET;
     }
-    if(modeState > 2)
+    if(ModeState > MAX_MODE)
     {
-        modeState = 0;
+        ModeState = 0;
         IsDataChanged = YES;
         stateReturn = START;
         SYSTICK_Delay_ms(30);

@@ -24,7 +24,6 @@
 /*******************************************************************************
  * Definition
  ******************************************************************************/
-
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -34,15 +33,14 @@ int main(void)
     program_state_t state = START;
     run_mechine_data_t mechineData;
     mechineData.runEx = 1;
-    mechineData.dataSpeed = 1;
-    mechineData.runTime.minute = 0;
-    mechineData.dis = 0;
+    mechineData.speed = 1;
+    mechineData.runTime = 0;
+    mechineData.distance = 0;
     mechineData.incline = 0;
     GPIO_LcdInit();
     lcd_init();
     lcd_clr();
     mainScreen();
-    char key;
     KEYPAD_Init();
     SYSTICK_Init();
 	while(1)

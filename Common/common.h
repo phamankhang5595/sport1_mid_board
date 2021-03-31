@@ -15,21 +15,39 @@ typedef enum
     IDLE
 } program_state_t;
 
-/* program data for display */
+/* program data for display and executes*/
 typedef struct
 {
-    uint32_t second;
-    uint32_t minute;
-}Time_data_t;
-
-typedef struct
-{
-    float dataSpeed;
-    float dis;
-    float clo;
+    float speed;
+    float distance;
+    float calo;
+    uint32_t runTime;
     uint8_t runEx;
-    Time_data_t runTime;
     uint8_t incline;
 } run_mechine_data_t;
+/* define default value and maximum value of data */
+#define MAX_SPEED           (15)
+#define MAX_RUN_TIME        (120)
+#define MAX_INCLINE         (9)
+#define MAX_CALO            (300)
+#define MAX_DISTANCE        (200)
+#define MAX_RUN_EX          (15)
 
+#define DEFAULT_SPEED       (0)
+#define DEFAULT_RUN_TIME    (0)
+#define DEFAULT_INCLINE     (0)
+#define DEFAULT_CALO        (0)
+#define DEFAULT_DISTANCE    (0)
+#define DEFAULT_RUN_EX      (1)
+
+#define YES     0
+#define NO      1
+/*******************************************************************************
+ * Variable
+ ******************************************************************************/
+extern uint8_t IsDataChanged;
+/*******************************************************************************
+ * API
+ ******************************************************************************/
+void resetRunMechineData(run_mechine_data_t *mechineData);
 #endif /* common.h */

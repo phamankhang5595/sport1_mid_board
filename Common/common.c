@@ -1,21 +1,16 @@
-#ifndef __START_MODE_H__
-#define __START_MODE_H__
-/*******************************************************************************
- * Include file
- ******************************************************************************/
-#include "stdint.h"
 #include "common.h"
 /*******************************************************************************
- * API
+ * Variable
  ******************************************************************************/
-/*!
- * @brief 
- *
- * @param 
- * @param 
- */
-program_state_t start_mode();
-#endif
+uint8_t IsDataChanged = YES;
 /*******************************************************************************
- * EOF
+ * Code
  ******************************************************************************/
+void resetRunMechineData(run_mechine_data_t *mechineData)
+{
+    mechineData->calo       = DEFAULT_CALO;
+    mechineData->distance   = DEFAULT_DISTANCE;
+    mechineData->incline    = DEFAULT_INCLINE;
+    mechineData->runEx      = DEFAULT_RUN_EX;
+    mechineData->runTime    = DEFAULT_RUN_TIME;
+}
