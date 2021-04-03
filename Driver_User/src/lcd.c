@@ -372,7 +372,7 @@ void lcd_show_data1(unsigned char *puts,uint8_t address)
     for(i=0;i<SIZE_BUFF;i++)   
     {   
         write_data(puts[i]);   
-        delay(5);   
+        delay(4);   
     }   
     GPIO_SetBits(GPIOA,HT1621_CS);                                  //CS = 1;   
 }
@@ -496,7 +496,7 @@ void lcd_send_data(unsigned char *data,uint8_t address)
                 show_buf[i] = 0xff;
                 break;
         }
-        if(address==8||address==12||address==22||address==16          
+        if(address==8||address==12||address==22||address==14         
            ||address==24)
         {
             show_buf[i] |= 0x08;

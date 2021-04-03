@@ -11,7 +11,9 @@ uint8_t ModeState;
 /* count for blink */
 uint32_t CountForBlink;
 /*  */
-setup_data_change DataChange = ALL_CHANGE;
+static uint8_t IsFistTimeRun;
+
+State_Update_Data sttData = RUN_TIME;
 /*******************************************************************************
  * Definition
  ******************************************************************************/
@@ -30,7 +32,6 @@ static void increase_val(run_mechine_data_t *mechineData)
 {
     if(ModeState == 0)
     {
-        DataChange = TIME_CHANGE;
         if(mechineData->runTime < MAX_RUN_TIME)
         {
             mechineData->runTime += 60;
@@ -43,14 +44,12 @@ static void increase_val(run_mechine_data_t *mechineData)
         mechineData->distance += 1;
         if(mechineData->distance > MAX_DISTANCE)
             mechineData->distance = MAX_DISTANCE;           /* maximum distance value */
-        DataChange = DIS_CHANGE;
     }
     else if(ModeState == 2)
     {
         mechineData->calo += 1;
         if(mechineData->calo > MAX_CALO)
             mechineData->calo = MAX_CALO;                   /* maximum distance value */
-        DataChange = CALO_CHANGE;
     }
 }
 
@@ -65,7 +64,6 @@ static void decrease_val(run_mechine_data_t *mechineData)
 {
     if(ModeState == 0)
     {
-        DataChange = TIME_CHANGE;
         if(mechineData->runTime > 60)
         {
             mechineData->runTime -= 60;
@@ -75,14 +73,12 @@ static void decrease_val(run_mechine_data_t *mechineData)
     }
     else if(ModeState == 1)
     {
-        DataChange = DIS_CHANGE;
         mechineData->distance -= 1;
         if(mechineData->distance < 1)
             mechineData->distance = 1;           /* minimum distance value */
     }
     else if(ModeState == 2)
     {
-        DataChange = CALO_CHANGE;
         mechineData->calo -= 1;
         if(mechineData->calo < 1)
             mechineData->calo = 1;               /* minimum distance value */
@@ -98,28 +94,165 @@ static void decrease_val(run_mechine_data_t *mechineData)
  * @param 
  * @param 
  */
+// program_state_t setup_mode(run_mechine_data_t *mechineData)
+// {
+//     static program_state_t stateReturn;
+//     char key = NO_KEY;
+    
+//     /* Show screen */
+//     if(IsDataChanged == YES)
+//     {
+//         switch (DataChange)
+//         {
+//             case DIS_CHANGE:
+//                 updateDistance(mechineData->distance);
+                
+//                 break;
+//             case CALO_CHANGE:
+//                 updateCalo(mechineData->calo);
+//                 break;
+//             case TIME_CHANGE:
+//                 updateTime(mechineData->runTime);
+//                 break;
+//             case ALL_CHANGE:
+//                 updateCalo(mechineData->calo);
+//                 updateDistance(mechineData->distance);
+//                 updateTime(mechineData->runTime);
+//                 break;
+//             default:
+//                 break;
+
+//         }
+//         IsDataChanged = NO;
+//     }
+
+//     /* blink led */
+//     CountForBlink++;
+//     if(CountForBlink == BLINK_FREQ)
+//     {
+//         if (ModeState==0)
+//         {
+//             lcd_clr_section(0,1);
+//             lcd_clr_section(8,3);
+//         }
+//         else if (ModeState == 1)
+//         {
+//             lcd_clr_section(14,3);
+//         }
+//         else if(ModeState == 2)
+//         {
+//             lcd_clr_section(20,3);
+//         }
+//     }
+//     else if(CountForBlink == 2*BLINK_FREQ)
+//     {
+//         IsDataChanged = YES;
+//         CountForBlink=0;
+//     }
+    
+//     /* Scan key */
+//     key = KEYPAD_ScanKey();
+//     switch(key)
+//     {
+//         case SETUP_KEY:
+//             while(key==SETUP_KEY)
+//                 key = KEYPAD_ScanKey();
+//             ModeState += 1;
+//             stateReturn = USER_SET;
+//             break;
+//         case PLUS_KEY:
+//             increase_val(mechineData);
+//             IsDataChanged = YES;
+//             stateReturn = USER_SET;
+//             break;
+//         case MINUS_KEY:
+//             decrease_val(mechineData);
+//             IsDataChanged = YES;
+//             stateReturn = USER_SET;
+//             break;
+//         case UP_KEY:
+//             increase_val(mechineData);
+//             IsDataChanged = YES;
+//             stateReturn = USER_SET;
+//             break;
+//         case DOWN_KEY:
+//             decrease_val(mechineData);
+//             IsDataChanged = YES;
+//             stateReturn = USER_SET;
+//             break;
+//         case RUN_KEY:
+//             IsDataChanged = YES;
+//             stateReturn = RUN;
+//             break;
+//         case STOP_KEY:
+//             IsDataChanged = YES;
+//             stateReturn = START;
+//             break;
+//         default:
+//             stateReturn = USER_SET;
+//     }
+//     if(ModeState > MAX_MODE)
+//     {
+//         ModeState = 0;
+//         IsDataChanged = YES;
+//         stateReturn = START;
+//         SYSTICK_Delay_ms(30);
+//     }
+//     return (stateReturn);
+// }
+
 program_state_t setup_mode(run_mechine_data_t *mechineData)
 {
     static program_state_t stateReturn;
     char key = NO_KEY;
-    
+    sttData = SET_UP;   
     /* Show screen */
+    
+    if(IsFistTimeRun == YES)
+    {
+        while(KEYPAD_ScanKey()==SETUP_KEY);
+        IsFistTimeRun = NO;
+    }
+    /* blink led */
+    CountForBlink++;
+    if(CountForBlink == BLINK_FREQ)
+    {
+        if (ModeState==0)
+        {
+            
+            lcd_clr_section(0,1);
+            lcd_clr_section(8,3);
+            
+        }
+        else if (ModeState == 1)
+        {
+            
+            lcd_clr_section(14,3);
+            
+        }
+        else if(ModeState == 2)
+        {
+            
+            lcd_clr_section(20,3);          
+        }
+    }
+    else if(CountForBlink == 2*BLINK_FREQ)
+    {
+        IsDataChanged = YES;
+        CountForBlink=0;
+    }
     if(IsDataChanged == YES)
     {
-        switch (DataChange)
+        SYSTICK_Delay_ms(60);
+        switch (ModeState)
         {
-            case DIS_CHANGE:
+            case 1:             
                 updateDistance(mechineData->distance);
                 break;
-            case CALO_CHANGE:
+            case 2:
                 updateCalo(mechineData->calo);
                 break;
-            case TIME_CHANGE:
-                updateTime(mechineData->runTime);
-                break;
-            case ALL_CHANGE:
-                updateCalo(mechineData->calo);
-                updateDistance(mechineData->distance);
+            case 0:
                 updateTime(mechineData->runTime);
                 break;
             default:
@@ -128,39 +261,27 @@ program_state_t setup_mode(run_mechine_data_t *mechineData)
         }
         IsDataChanged = NO;
     }
-
-    /* blink led */
-    CountForBlink++;
-    if(CountForBlink == BLINK_FREQ)
-    {
-        if (ModeState==0)
-        {
-            lcd_clr_section(0,1);
-            lcd_clr_section(8,3);
-        }
-        else if (ModeState == 1)
-        {
-            lcd_clr_section(14,3);
-        }
-        else if(ModeState == 2)
-        {
-            lcd_clr_section(20,3);
-        }
-    }
-    else if(CountForBlink == 2*BLINK_FREQ)
-    {
-        IsDataChanged = YES;
-        CountForBlink=0;
-    }
-    
     /* Scan key */
     key = KEYPAD_ScanKey();
     switch(key)
     {
         case SETUP_KEY:
-            while(key==SETUP_KEY)
-                key = KEYPAD_ScanKey();
+            while(KEYPAD_ScanKey()==SETUP_KEY);
             ModeState += 1;
+            switch (ModeState)
+            {
+            case 0:
+                updateCalo(mechineData->calo);
+                break;
+            case 1:
+                updateTime(mechineData->runTime);
+                break;
+            case 2:
+                updateDistance(mechineData->distance);
+                break;    
+            default:
+                break;
+            }
             stateReturn = USER_SET;
             break;
         case PLUS_KEY:
@@ -185,10 +306,12 @@ program_state_t setup_mode(run_mechine_data_t *mechineData)
             break;
         case RUN_KEY:
             IsDataChanged = YES;
+            IsFistTimeRun = YES;
             stateReturn = RUN;
             break;
         case STOP_KEY:
             IsDataChanged = YES;
+            IsFistTimeRun = YES;
             stateReturn = START;
             break;
         default:
@@ -198,9 +321,11 @@ program_state_t setup_mode(run_mechine_data_t *mechineData)
     {
         ModeState = 0;
         IsDataChanged = YES;
+        IsFistTimeRun = YES;
         stateReturn = START;
         SYSTICK_Delay_ms(30);
     }
+    sttData = RUN_TIME;
     return (stateReturn);
 }
 

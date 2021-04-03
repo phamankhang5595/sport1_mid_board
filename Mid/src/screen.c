@@ -7,33 +7,6 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
-char delay_and_scand(uint32_t ms)
-{
-    char key;
-    uint32_t mS=ms*484;
-    key=KEYPAD_ScanKey();
-    while((key != STOP_KEY) && (mS))   
-    {
-        key=KEYPAD_ScanKey(); 
-        mS--;
-    }
-    return (key);
-}
-
-static void clear_Dot(unsigned char *data,uint8_t address)
-{
-    unsigned char buffData[10] = {0xd7,0x06,0xe3,0xa7,0x36,0xb5,0xf5,0x07,0xf7,0xb7};
-    unsigned char buffDigit[10]={'0','1','2','3','4','5','6','7','8','9'};
-    for (int i = 0; i < 10; i++)
-    {
-        if(*data==buffDigit[i])
-        {
-            lcd_show_data1(&buffData[i],address);
-        }
-    }
-                                                                                                          
-}
-
 static void Screen_convertData(float dataIn, unsigned char* dataOut)
 {
     int i;
@@ -57,6 +30,7 @@ static void timeScreenSecond(uint32_t second)
     lcd_send_data(&factorSecond[0],ADD_TIME_SECOND_0);
 }
 
+
 static void timeScreenMinute(uint32_t minute)
 {
     unsigned char factorMinute[2]={'\0','\0'};
@@ -68,6 +42,69 @@ static void timeScreenMinute(uint32_t minute)
     clear_Dot(&factorMinute[0],ADD_TIME_MINUTE_0); */
 }
 
+/*
+*/
+
+char delay_and_scand(uint32_t ms)
+{
+    char key;
+    uint32_t mS=ms*484;
+    key=KEYPAD_ScanKey();
+    while((key != STOP_KEY) && (mS))   
+    {
+        key=KEYPAD_ScanKey(); 
+        mS--;
+    }
+    return (key);
+}
+
+void clear_Dot(unsigned char *data,uint8_t address)
+{
+    unsigned char buffData[10] = {0xd7,0x06,0xe3,0xa7,0x36,0xb5,0xf5,0x07,0xf7,0xb7};
+    unsigned char buffDigit[10]={'0','1','2','3','4','5','6','7','8','9'};
+    for (int i = 0; i < 10; i++)
+    {
+        if(*data==buffDigit[i])
+        {
+            lcd_show_data1(&buffData[i],address);
+        }
+    }
+                                                                                                          
+}
+
+void clear_SET_Time(uint32_t time,uint8_t address)
+{
+    unsigned char factorSecond[2]={'\0','\0'};
+    uint32_t minute=time/60;
+    uint32_t second= time-minute*60;
+    factorSecond[0]=second % 10+'0';
+    factorSecond[1]=second / 10+'0';
+    clear_Dot(&factorSecond[1],address);
+}
+
+void display_Set(unsigned char *data,uint8_t address)
+{
+    unsigned char buffData[10] = {0xdf,0x0e,0xeb,0xaf,0x3e,0xbd,0xfd,0x0f,0xff,0xbf};
+    unsigned char buffDigit[10]={'0','1','2','3','4','5','6','7','8','9'};
+    unsigned char nullCh=0x08;
+    for (int i = 0; i < 10; i++)
+    {
+        if(*data==buffDigit[i])
+        {
+            if (address==26)
+            {
+                lcd_show_data1(&nullCh,address);
+            }
+            else
+            {
+                lcd_show_data1(&buffData[i],address);
+            }      
+        }
+    }
+}
+
+
+
 void updateTime(uint32_t time)
 {
     uint32_t minute=time/60;
@@ -75,6 +112,7 @@ void updateTime(uint32_t time)
     timeScreenSecond(second);
     timeScreenMinute(minute);   
 }
+
 
 void updateDistance(float dis)
 {
@@ -86,6 +124,7 @@ void updateDistance(float dis)
     }
 }
 
+
 void updateCalo(float cal)
 {
     unsigned char dataConvert[3];
@@ -95,6 +134,7 @@ void updateCalo(float cal)
         lcd_send_data(&dataConvert[i],ADD_CAL_0+2*i);
     }
 }
+
 
 void updateIncline(uint8_t incl)
 {
@@ -139,8 +179,10 @@ void mainScreen()
     int i=0;
     for(i = 0; i < 31; i+=2)
     {
-         lcd_send_data("0",i);
-         delay(1000);
+        if (i!=0 && i!=20 && i!=26 && i!=28)
+        {
+            lcd_send_data("0",i);
+        }
     }
 }
 

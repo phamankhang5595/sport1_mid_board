@@ -2,9 +2,23 @@
 #define _SCREEN_H_
 
 #include "common.h"
+
+/*******************************************************************************
+ * Definitions
+ ******************************************************************************/
+typedef enum 
+{
+    RUN_TIME = 0,
+    SET_UP
+}State_Update_Data;
 /*******************************************************************************
  * API
  ******************************************************************************/
+void clear_Dot(unsigned char *data,uint8_t address);
+
+void clear_SET_Time(uint32_t time,uint8_t address);
+
+void display_Set(unsigned char *data,uint8_t address);
 
 void updateTime(uint32_t time);
 
