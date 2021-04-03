@@ -30,7 +30,8 @@
  * Code
  ******************************************************************************/
 
-int main(void)
+
+   int main(void)
 {
     program_state_t state = START;
     run_mechine_data_t mechineData;

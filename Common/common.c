@@ -8,9 +8,9 @@ uint8_t IsDataChanged = YES;
  ******************************************************************************/
 void resetRunMechineData(run_mechine_data_t *mechineData)
 {
-    mechineData->calo       = DEFAULT_CALO;
-    mechineData->distance   = DEFAULT_DISTANCE;
-    mechineData->incline    = DEFAULT_INCLINE;
+    mechineData->calo       = 0;
+    mechineData->distance   = 0;
+    mechineData->incline    = 0;
     mechineData->runEx      = DEFAULT_RUN_EX;
-    mechineData->runTime    = DEFAULT_RUN_TIME;
+    mechineData->runTime    = 0;
 }

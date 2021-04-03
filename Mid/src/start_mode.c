@@ -21,7 +21,12 @@ program_state_t start_mode(run_mechine_data_t *mechineData)
     {
         /* update screen */
         resetRunMechineData(mechineData);
-        mainScreen();
+        /* update screen */
+        updateSpeed(mechineData->speed);            /* Speed */
+        updateCalo(mechineData->calo);              /* Calo */
+        updateDistance(mechineData->distance);      /* Distance */
+        updateIncline(mechineData->incline);        /* Incline */
+        updateTime(mechineData->runTime);           /* Run time */
         IsDataChanged = NO;
     }
     SYSTICK_Delay_ms(20);

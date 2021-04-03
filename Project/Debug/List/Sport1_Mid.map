@@ -1,59 +1,58 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.50.6.265/W32 for ARM                  03/Apr/2021  10:12:02
+# IAR ELF Linker V8.50.6.265/W32 for ARM                  03/Apr/2021  13:45:08
 # Copyright 2007-2020 IAR Systems AB.
 #
 #    Output file  =
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out
+#        D:\Vitech\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out
 #    Map file     =
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\List\Sport1_Mid.map
+#        D:\Vitech\sport1_mid_board\Project\Debug\List\Sport1_Mid.map
 #    Command line =
-#        -f C:\Users\hunga\AppData\Local\Temp\EW4722.tmp
-#        (F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\common.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\debug.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\exercise_mode.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\keypad.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\lcd.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\main.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\misc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\queue.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\run_mode.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\screen.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\setup_mode.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\start_mode.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\startup_stm32f10x_md.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_adc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_bkp.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_can.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_cec.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_crc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_dac.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_dbgmcu.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_dma.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_exti.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_flash.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_fsmc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_gpio.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_i2c.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_iwdg.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_pwr.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_rcc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_rtc.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_sdio.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_spi.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_tim.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_usart.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stm32f10x_wwdg.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\stop_mode.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\system_stm32f10x.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\systick.o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj\xor.o
-#        --no_out_extension -o
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out
-#        --map
-#        F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\List\Sport1_Mid.map
-#        --config D:\iar\arm\config\linker\ST\stm32f103x8.icf --semihosting
-#        --entry __iar_program_start --vfe --text_out locale)
+#        -f C:\Users\PHAMAN~1\AppData\Local\Temp\EW626D.tmp
+#        (D:\Vitech\sport1_mid_board\Project\Debug\Obj\common.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\debug.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\exercise_mode.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\keypad.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\lcd.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\main.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\misc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\queue.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\run_mode.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\screen.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\setup_mode.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\start_mode.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\startup_stm32f10x_md.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_adc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_bkp.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_can.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_cec.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_crc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_dac.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_dbgmcu.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_dma.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_exti.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_flash.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_fsmc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_gpio.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_i2c.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_iwdg.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_pwr.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_rcc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_rtc.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_sdio.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_spi.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_tim.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_usart.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stm32f10x_wwdg.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\stop_mode.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\system_stm32f10x.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\systick.o
+#        D:\Vitech\sport1_mid_board\Project\Debug\Obj\xor.o --no_out_extension
+#        -o D:\Vitech\sport1_mid_board\Project\Debug\Exe\Sport1_Mid.out --map
+#        D:\Vitech\sport1_mid_board\Project\Debug\List\Sport1_Mid.map --config
+#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.4\arm\config\linker\ST\stm32f103x8.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
 #
 ###############################################################################
 
@@ -93,130 +92,132 @@ initialize by copy { rw };
   .intvec            ro code   0x800'0000    0xec  startup_stm32f10x_md.o [1]
                              - 0x800'00ec    0xec
 
-"P1":                                      0x1d53
+"P1":                                      0x1e0b
   .text              ro code   0x800'00ec   0x6ac  lcd.o [1]
   .text              ro code   0x800'0798   0x116  stm32f10x_gpio.o [1]
   .text              ro code   0x800'08ae    0x14  memset.o [4]
   .text              ro code   0x800'08c4    0x66  ABImemset.o [4]
-  .text              ro code   0x800'092c   0x32c  screen.o [1]
-  .text              ro code   0x800'0c58   0x290  keypad.o [1]
-  .text              ro code   0x800'0ee8    0xd8  FltMul.o [3]
-  .text              ro code   0x800'0fc0    0x22  FltToU32.o [3]
-  .text              ro code   0x800'0fe4    0x20  stm32f10x_rcc.o [1]
-  .text              ro code   0x800'1004   0x120  systick.o [1]
-  .text              ro code   0x800'1124   0x248  setup_mode.o [1]
-  .text              ro code   0x800'136c    0xe2  FltAdd.o [3]
-  .text              ro code   0x800'1450    0x24  FltCmpGe.o [3]
-  .text              ro code   0x800'1474    0x24  FltCmpLe.o [3]
-  .text              ro code   0x800'1498    0x74  FltSub.o [3]
-  .text              ro code   0x800'150c   0x17a  DblAdd.o [3]
-  .text              ro code   0x800'1688    0xd2  DblSub.o [3]
-  .text              ro code   0x800'175c   0x118  system_stm32f10x.o [1]
-  .text              ro code   0x800'1874   0x114  exercise_mode.o [1]
-  .text              ro code   0x800'1988    0x16  common.o [1]
-  .text              ro code   0x800'19a0    0xec  run_mode.o [1]
-  .text              ro code   0x800'1a8c    0x7e  main.o [1]
-  .text              ro code   0x800'1b0c    0x78  start_mode.o [1]
-  .text              ro code   0x800'1b84    0x38  stop_mode.o [1]
-  .text              ro code   0x800'1bbc    0x48  FltToDbl.o [3]
-  .text              ro code   0x800'1c04    0x68  DblToFlt.o [3]
-  .text              ro code   0x800'1c6c    0x38  packbits_init_single.o [4]
-  .text              ro code   0x800'1ca4    0x28  data_init.o [4]
-  .iar.init_table    const     0x800'1ccc    0x10  - Linker created -
-  .text              ro code   0x800'1cdc    0x1e  cmain.o [4]
-  .text              ro code   0x800'1cfa     0x4  low_level_init.o [2]
-  .text              ro code   0x800'1cfe     0x4  exit.o [2]
-  .text              ro code   0x800'1d04     0xa  cexit.o [4]
-  .text              ro code   0x800'1d10    0x14  exit.o [5]
-  .rodata            const     0x800'1d24    0x10  keypad.o [1]
-  .text              ro code   0x800'1d34    0x10  startup_stm32f10x_md.o [1]
-  .rodata            const     0x800'1d44     0xc  screen.o [1]
-  .rodata            const     0x800'1d50     0xc  screen.o [1]
-  .text              ro code   0x800'1d5c     0xc  cstartup_M.o [4]
-  .text              ro code   0x800'1d68     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d6c     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d70     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d74     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d78     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d7c     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d80     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d84     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d88     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d8c     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d90     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d94     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d98     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1d9c     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1da0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1da4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1da8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dac     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1db0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1db4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1db8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dbc     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dc0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dc4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dc8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dcc     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dd0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dd4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dd8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1ddc     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1de0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1de4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1de8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dec     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1df0     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1df4     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1df8     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1dfc     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e00     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e04     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e08     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e0c     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e10     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e14     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e18     0x4  startup_stm32f10x_md.o [1]
-  .text              ro code   0x800'1e1c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'092c   0x2a8  screen.o [1]
+  .text              ro code   0x800'0bd4   0x290  keypad.o [1]
+  .text              ro code   0x800'0e64    0xd8  FltMul.o [3]
+  .text              ro code   0x800'0f3c    0x22  FltToU32.o [3]
+  .text              ro code   0x800'0f60    0x20  stm32f10x_rcc.o [1]
+  .text              ro code   0x800'0f80   0x120  systick.o [1]
+  .text              ro code   0x800'10a0   0x29c  setup_mode.o [1]
+  .text              ro code   0x800'133c    0xe2  FltAdd.o [3]
+  .text              ro code   0x800'1420    0x24  FltCmpGe.o [3]
+  .text              ro code   0x800'1444    0x24  FltCmpLe.o [3]
+  .text              ro code   0x800'1468    0x74  FltSub.o [3]
+  .text              ro code   0x800'14dc   0x1f8  exercise_mode.o [1]
+  .text              ro code   0x800'16d4    0x16  common.o [1]
+  .text              ro code   0x800'16ec   0x17a  DblAdd.o [3]
+  .text              ro code   0x800'1868    0xd2  DblSub.o [3]
+  .text              ro code   0x800'193c   0x118  system_stm32f10x.o [1]
+  .text              ro code   0x800'1a54    0xec  run_mode.o [1]
+  .text              ro code   0x800'1b40    0x94  start_mode.o [1]
+  .text              ro code   0x800'1bd4    0x7e  main.o [1]
+  .text              ro code   0x800'1c54    0x38  stop_mode.o [1]
+  .text              ro code   0x800'1c8c    0x48  FltToDbl.o [3]
+  .text              ro code   0x800'1cd4    0x68  DblToFlt.o [3]
+  .text              ro code   0x800'1d3c    0x38  packbits_init_single.o [4]
+  .text              ro code   0x800'1d74    0x28  data_init.o [4]
+  .iar.init_table    const     0x800'1d9c    0x10  - Linker created -
+  .text              ro code   0x800'1dac    0x1e  cmain.o [4]
+  .text              ro code   0x800'1dca     0x4  low_level_init.o [2]
+  .text              ro code   0x800'1dce     0x4  exit.o [2]
+  .text              ro code   0x800'1dd4     0xa  cexit.o [4]
+  .text              ro code   0x800'1de0    0x14  exit.o [5]
+  .rodata            const     0x800'1df4    0x10  keypad.o [1]
+  .text              ro code   0x800'1e04    0x10  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e14     0xc  cstartup_M.o [4]
   .text              ro code   0x800'1e20     0x4  startup_stm32f10x_md.o [1]
   .text              ro code   0x800'1e24     0x4  startup_stm32f10x_md.o [1]
   .text              ro code   0x800'1e28     0x4  startup_stm32f10x_md.o [1]
   .text              ro code   0x800'1e2c     0x4  startup_stm32f10x_md.o [1]
   .text              ro code   0x800'1e30     0x4  startup_stm32f10x_md.o [1]
   .text              ro code   0x800'1e34     0x4  startup_stm32f10x_md.o [1]
-  .rodata            const     0x800'1e38     0x0  packbits_init_single.o [4]
-  Initializer bytes  const     0x800'1e38     0x7  <for P2-1>
-                             - 0x800'1e3f  0x1d53
+  .text              ro code   0x800'1e38     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e3c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e40     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e44     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e48     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e4c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e50     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e54     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e58     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e5c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e60     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e64     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e68     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e6c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e70     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e74     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e78     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e7c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e80     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e84     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e88     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e8c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e90     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e94     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e98     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1e9c     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ea0     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ea4     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ea8     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1eac     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1eb0     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1eb4     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1eb8     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ebc     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ec0     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ec4     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ec8     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ecc     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ed0     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ed4     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ed8     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1edc     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ee0     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ee4     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1ee8     0x4  startup_stm32f10x_md.o [1]
+  .text              ro code   0x800'1eec     0x4  startup_stm32f10x_md.o [1]
+  .rodata            const     0x800'1ef0     0x0  packbits_init_single.o [4]
+  Initializer bytes  const     0x800'1ef0     0x7  <for P2-1>
+                             - 0x800'1ef7  0x1e0b
 
-"P2", part 1 of 2:                           0x1e
-  P2-1                        0x2000'0000    0x1e  <Init block>
+"P2", part 1 of 2:                           0x25
+  P2-1                        0x2000'0000    0x25  <Init block>
     .data            inited   0x2000'0000     0x4  system_stm32f10x.o [1]
-    .bss             inited   0x2000'0004     0x4  run_mode.o [1]
-    .bss             inited   0x2000'0008     0x4  setup_mode.o [1]
-    .bss             inited   0x2000'000c     0x4  systick.o [1]
+    .bss             inited   0x2000'0004     0x4  exercise_mode.o [1]
+    .bss             inited   0x2000'0008     0x4  run_mode.o [1]
+    .bss             inited   0x2000'000c     0x4  setup_mode.o [1]
     .bss             inited   0x2000'0010     0x4  systick.o [1]
     .bss             inited   0x2000'0014     0x4  systick.o [1]
-    .bss             inited   0x2000'0018     0x1  common.o [1]
-    .bss             inited   0x2000'0019     0x1  exercise_mode.o [1]
-    .bss             inited   0x2000'001a     0x1  run_mode.o [1]
-    .bss             inited   0x2000'001b     0x1  setup_mode.o [1]
-    .bss             inited   0x2000'001c     0x1  setup_mode.o [1]
-    .bss             inited   0x2000'001d     0x1  start_mode.o [1]
-                            - 0x2000'001e    0x1e
+    .bss             inited   0x2000'0018     0x4  systick.o [1]
+    .bss             inited   0x2000'001c     0x1  common.o [1]
+    .bss             inited   0x2000'001d     0x1  exercise_mode.o [1]
+    .bss             inited   0x2000'001e     0x1  exercise_mode.o [1]
+    .bss             inited   0x2000'001f     0x1  exercise_mode.o [1]
+    .bss             inited   0x2000'0020     0x1  run_mode.o [1]
+    .bss             inited   0x2000'0021     0x1  setup_mode.o [1]
+    .bss             inited   0x2000'0022     0x1  setup_mode.o [1]
+    .bss             inited   0x2000'0023     0x1  setup_mode.o [1]
+    .bss             inited   0x2000'0024     0x1  start_mode.o [1]
+                            - 0x2000'0025    0x25
 
 "P2", part 2 of 2:                          0x800
-  CSTACK                      0x2000'0020   0x800  <Block>
-    CSTACK           uninit   0x2000'0020   0x800  <Block tail>
-                            - 0x2000'0820   0x800
+  CSTACK                      0x2000'0028   0x800  <Block>
+    CSTACK           uninit   0x2000'0028   0x800  <Block tail>
+                            - 0x2000'0828   0x800
 
 Unused ranges:
 
          From           To    Size
          ----           --    ----
-   0x800'1e3f   0x800'ffff  0xe1c1
-  0x2000'001e  0x2000'001f     0x2
-  0x2000'0820  0x2000'4fff  0x47e0
+   0x800'1ef7   0x800'ffff  0xe109
+  0x2000'0025  0x2000'0027     0x3
+  0x2000'0828  0x2000'4fff  0x47d8
 
 
 *******************************************************************************
@@ -226,10 +227,10 @@ Unused ranges:
           Address      Size
           -------      ----
 Copy/packbits (__iar_packbits_init_single3)
-    1 source range, total size 0x7 (23% of destination):
-           0x800'1e38   0x7
-    1 destination range, total size 0x1e:
-          0x2000'0000  0x1e
+    1 source range, total size 0x7 (18% of destination):
+           0x800'1ef0   0x7
+    1 destination range, total size 0x25:
+          0x2000'0000  0x25
 
 
 
@@ -243,24 +244,24 @@ command line/config:
     -------------------------------------------------
     Total:
 
-F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj: [1]
+D:\Vitech\sport1_mid_board\Project\Debug\Obj: [1]
     common.o                     22                 1
-    exercise_mode.o             276        1        1
+    exercise_mode.o             504        2        7
     keypad.o                    656       16
     lcd.o                     1'708
     main.o                      126
     run_mode.o                  236        1        5
-    screen.o                    812       24
-    setup_mode.o                584        1        6
-    start_mode.o                120        1        1
+    screen.o                    680
+    setup_mode.o                668        1        7
+    start_mode.o                148        1        1
     startup_stm32f10x_md.o      460
     stm32f10x_gpio.o            278
     stm32f10x_rcc.o              32
     stop_mode.o                  56
     system_stm32f10x.o          280                 4
-    systick.o                   288        3       12
+    systick.o                   288        2       12
     -------------------------------------------------
-    Total:                    5'934       47       30
+    Total:                    6'142       23       37
 
 dl7M_tln.a: [2]
     exit.o                        4
@@ -301,7 +302,7 @@ shb_l.a: [5]
     Gaps                         20
     Linker created                        16    2'048
 -----------------------------------------------------
-    Grand Total:              7'680       63    2'078
+    Grand Total:              7'888       39    2'085
 
 
 *******************************************************************************
@@ -310,124 +311,128 @@ shb_l.a: [5]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-.iar.init_table$$Base    0x800'1ccc          --   Gb  - Linker created -
-.iar.init_table$$Limit   0x800'1cdc          --   Gb  - Linker created -
-?main                    0x800'1cdd         Code  Gb  cmain.o [4]
-CSTACK$$Base            0x2000'0020          --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'0820          --   Gb  - Linker created -
-CountForBlink           0x2000'0008    0x4  Data  Gb  setup_mode.o [1]
+.iar.init_table$$Base    0x800'1d9c          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'1dac          --   Gb  - Linker created -
+?main                    0x800'1dad         Code  Gb  cmain.o [4]
+CSTACK$$Base            0x2000'0028          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0828          --   Gb  - Linker created -
+CountForBlink           0x2000'0004    0x4  Data  Lc  exercise_mode.o [1]
+CountForBlink           0x2000'000c    0x4  Data  Gb  setup_mode.o [1]
+DataChange              0x2000'0022    0x1  Data  Gb  setup_mode.o [1]
 GPIO_Init                0x800'0799   0xea  Code  Gb  stm32f10x_gpio.o [1]
 GPIO_LcdInit             0x800'00ed   0x2e  Code  Gb  lcd.o [1]
 GPIO_ReadInputDataBit    0x800'0883   0x1c  Code  Gb  stm32f10x_gpio.o [1]
 GPIO_ResetBits           0x800'08a7    0x8  Code  Gb  stm32f10x_gpio.o [1]
 GPIO_SetBits             0x800'089f    0x8  Code  Gb  stm32f10x_gpio.o [1]
-IsDataChanged           0x2000'0018    0x1  Data  Gb  common.o [1]
-IsThisTheFirstRun       0x2000'0004    0x4  Data  Gb  run_mode.o [1]
-KEYPAD_Init              0x800'0d79   0xde  Code  Gb  keypad.o [1]
-KEYPAD_ScanKey           0x800'0e57   0x8a  Code  Gb  keypad.o [1]
-Keypad_Button_Values     0x800'1d24   0x10  Data  Gb  keypad.o [1]
-ModeState               0x2000'001b    0x1  Data  Gb  setup_mode.o [1]
-NVIC_SetPriority         0x800'1005   0x2c  Code  Lc  systick.o [1]
-RCC_APB2PeriphClockCmd   0x800'0fe5   0x1c  Code  Gb  stm32f10x_rcc.o [1]
-Region$$Table$$Base      0x800'1ccc          --   Gb  - Linker created -
-Region$$Table$$Limit     0x800'1cdc          --   Gb  - Linker created -
-SYSTICK_Delay_ms         0x800'1085   0x7c  Code  Gb  systick.o [1]
-SYSTICK_Delay_ms::t0    0x2000'0010    0x4  Data  Lc  systick.o [1]
-SYSTICK_Delay_ms::t1    0x2000'0014    0x4  Data  Lc  systick.o [1]
-SYSTICK_Get_Tick         0x800'107f    0x6  Code  Gb  systick.o [1]
-SYSTICK_Init             0x800'1061   0x14  Code  Gb  systick.o [1]
-Screen_convertData       0x800'099f   0x50  Code  Lc  screen.o [1]
-SetSysClock              0x800'17a1    0x8  Code  Lc  system_stm32f10x.o [1]
-SetSysClockTo72          0x800'17a9   0xae  Code  Lc  system_stm32f10x.o [1]
-SysTick_Config           0x800'1031   0x30  Code  Lc  systick.o [1]
-SysTick_Handler          0x800'1075    0xa  Code  Gb  systick.o [1]
+IsDataChanged           0x2000'001c    0x1  Data  Gb  common.o [1]
+IsFistTimeRun           0x2000'001e    0x1  Data  Lc  exercise_mode.o [1]
+IsThisTheFirstRun       0x2000'0008    0x4  Data  Gb  run_mode.o [1]
+KEYPAD_Init              0x800'0cf5   0xde  Code  Gb  keypad.o [1]
+KEYPAD_ScanKey           0x800'0dd3   0x8a  Code  Gb  keypad.o [1]
+Keypad_Button_Values     0x800'1df4   0x10  Data  Gb  keypad.o [1]
+ModeState               0x2000'0021    0x1  Data  Gb  setup_mode.o [1]
+NVIC_SetPriority         0x800'0f81   0x2c  Code  Lc  systick.o [1]
+RCC_APB2PeriphClockCmd   0x800'0f61   0x1c  Code  Gb  stm32f10x_rcc.o [1]
+Region$$Table$$Base      0x800'1d9c          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'1dac          --   Gb  - Linker created -
+ResetVal                0x2000'001d    0x1  Data  Lc  exercise_mode.o [1]
+SYSTICK_Delay_ms         0x800'1001   0x7c  Code  Gb  systick.o [1]
+SYSTICK_Delay_ms::t0    0x2000'0014    0x4  Data  Lc  systick.o [1]
+SYSTICK_Delay_ms::t1    0x2000'0018    0x4  Data  Lc  systick.o [1]
+SYSTICK_Get_Tick         0x800'0ffb    0x6  Code  Gb  systick.o [1]
+SYSTICK_Init             0x800'0fdd   0x14  Code  Gb  systick.o [1]
+Screen_convertData       0x800'095b   0x50  Code  Lc  screen.o [1]
+SetSysClock              0x800'1981    0x8  Code  Lc  system_stm32f10x.o [1]
+SetSysClockTo72          0x800'1989   0xae  Code  Lc  system_stm32f10x.o [1]
+SysTick_Config           0x800'0fad   0x30  Code  Lc  systick.o [1]
+SysTick_Handler          0x800'0ff1    0xa  Code  Gb  systick.o [1]
 SystemCoreClock         0x2000'0000    0x4  Data  Gb  system_stm32f10x.o [1]
-SystemInit               0x800'175d   0x44  Code  Gb  system_stm32f10x.o [1]
-__aeabi_cfcmple          0x800'1475         Code  Gb  FltCmpLe.o [3]
-__aeabi_cfrcmple         0x800'1451         Code  Gb  FltCmpGe.o [3]
-__aeabi_d2f              0x800'1c05         Code  Gb  DblToFlt.o [3]
-__aeabi_dadd             0x800'150d         Code  Gb  DblAdd.o [3]
-__aeabi_f2d              0x800'1bbd         Code  Gb  FltToDbl.o [3]
-__aeabi_f2uiz            0x800'0fc1         Code  Gb  FltToU32.o [3]
-__aeabi_fadd             0x800'136d         Code  Gb  FltAdd.o [3]
-__aeabi_fmul             0x800'0ee9         Code  Gb  FltMul.o [3]
+SystemInit               0x800'193d   0x44  Code  Gb  system_stm32f10x.o [1]
+__aeabi_cfcmple          0x800'1445         Code  Gb  FltCmpLe.o [3]
+__aeabi_cfrcmple         0x800'1421         Code  Gb  FltCmpGe.o [3]
+__aeabi_d2f              0x800'1cd5         Code  Gb  DblToFlt.o [3]
+__aeabi_dadd             0x800'16ed         Code  Gb  DblAdd.o [3]
+__aeabi_f2d              0x800'1c8d         Code  Gb  FltToDbl.o [3]
+__aeabi_f2uiz            0x800'0f3d         Code  Gb  FltToU32.o [3]
+__aeabi_fadd             0x800'133d         Code  Gb  FltAdd.o [3]
+__aeabi_fmul             0x800'0e65         Code  Gb  FltMul.o [3]
 __aeabi_memset           0x800'08c5         Code  Gb  ABImemset.o [4]
-__cmain                  0x800'1cdd         Code  Gb  cmain.o [4]
-__exit                   0x800'1d11   0x14  Code  Gb  exit.o [5]
+__cmain                  0x800'1dad         Code  Gb  cmain.o [4]
+__exit                   0x800'1de1   0x14  Code  Gb  exit.o [5]
 __iar_Memset             0x800'08c5         Code  Gb  ABImemset.o [4]
 __iar_Memset_word        0x800'08cd         Code  Gb  ABImemset.o [4]
-__iar_dadd               0x800'1689         Code  Gb  DblSub.o [3]
-__iar_data_init3         0x800'1ca5   0x28  Code  Gb  data_init.o [4]
-__iar_dsub               0x800'151d         Code  Gb  DblAdd.o [3]
-__iar_dsubStart          0x800'152f         Code  Gb  DblAdd.o [3]
-__iar_fadd               0x800'1499         Code  Gb  FltSub.o [3]
-__iar_fsub               0x800'1379         Code  Gb  FltAdd.o [3]
-__iar_fsubStart          0x800'1389         Code  Gb  FltAdd.o [3]
+__iar_dadd               0x800'1869         Code  Gb  DblSub.o [3]
+__iar_data_init3         0x800'1d75   0x28  Code  Gb  data_init.o [4]
+__iar_dsub               0x800'16fd         Code  Gb  DblAdd.o [3]
+__iar_dsubStart          0x800'170f         Code  Gb  DblAdd.o [3]
+__iar_fadd               0x800'1469         Code  Gb  FltSub.o [3]
+__iar_fsub               0x800'1349         Code  Gb  FltAdd.o [3]
+__iar_fsubStart          0x800'1359         Code  Gb  FltAdd.o [3]
 __iar_packbits_init_single3
-                         0x800'1c6d   0x38  Code  Gb  packbits_init_single.o [4]
-__iar_program_start      0x800'1d5d         Code  Gb  cstartup_M.o [4]
-__low_level_init         0x800'1cfb    0x4  Code  Gb  low_level_init.o [2]
+                         0x800'1d3d   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start      0x800'1e15         Code  Gb  cstartup_M.o [4]
+__low_level_init         0x800'1dcb    0x4  Code  Gb  low_level_init.o [2]
 __vector_table           0x800'0000         Data  Gb  startup_stm32f10x_md.o [1]
-_call_main               0x800'1ce9         Code  Gb  cmain.o [4]
-_exit                    0x800'1d05         Code  Gb  cexit.o [4]
-_main                    0x800'1cf7         Code  Gb  cmain.o [4]
-clear_Dot                0x800'095b   0x44  Code  Lc  screen.o [1]
-decrease_val             0x800'118d   0x68  Code  Lc  setup_mode.o [1]
+_call_main               0x800'1db9         Code  Gb  cmain.o [4]
+_exit                    0x800'1dd5         Code  Gb  cexit.o [4]
+_main                    0x800'1dc7         Code  Gb  cmain.o [4]
+blinkTimeLed             0x800'14dd   0x3a  Code  Lc  exercise_mode.o [1]
+decrease_val             0x800'1119   0x7a  Code  Lc  setup_mode.o [1]
 delay                    0x800'030f   0x2a  Code  Gb  lcd.o [1]
 delay_and_scand          0x800'092d   0x2e  Code  Gb  screen.o [1]
-exercise_mode            0x800'1875  0x114  Code  Gb  exercise_mode.o [1]
+exercise_mode            0x800'155d  0x15e  Code  Gb  exercise_mode.o [1]
 exercise_mode::stateReturn
-                        0x2000'0019    0x1  Data  Lc  exercise_mode.o [1]
-exit                     0x800'1cff    0x4  Code  Gb  exit.o [2]
-increase_val             0x800'1125   0x68  Code  Lc  setup_mode.o [1]
-isKeyPressed             0x800'0ceb   0x44  Code  Lc  keypad.o [1]
+                        0x2000'001f    0x1  Data  Lc  exercise_mode.o [1]
+exit                     0x800'1dcf    0x4  Code  Gb  exit.o [2]
+increase_val             0x800'10a1   0x78  Code  Lc  setup_mode.o [1]
+isKeyPressed             0x800'0c67   0x44  Code  Lc  keypad.o [1]
 lcd_clr                  0x800'0397   0x3c  Code  Gb  lcd.o [1]
 lcd_clr_section          0x800'0717   0x76  Code  Gb  lcd.o [1]
 lcd_init                 0x800'0339   0x5e  Code  Gb  lcd.o [1]
 lcd_send_data            0x800'041f  0x2f8  Code  Gb  lcd.o [1]
 lcd_show_data1           0x800'03d3   0x4c  Code  Gb  lcd.o [1]
-main                     0x800'1a8d   0x7e  Code  Gb  main.o [1]
-mainScreen               0x800'0ba7   0x24  Code  Gb  screen.o [1]
+main                     0x800'1bd5   0x7e  Code  Gb  main.o [1]
 memset                   0x800'08af   0x14  Code  Gb  memset.o [4]
-resetRunMechineData      0x800'1989   0x16  Code  Gb  common.o [1]
-rowCheck                 0x800'0d2f   0x4a  Code  Lc  keypad.o [1]
-runMode                  0x800'19a1   0xec  Code  Gb  run_mode.o [1]
-runMode::stateReturn    0x2000'001a    0x1  Data  Lc  run_mode.o [1]
-setColX                  0x800'0ca5   0x46  Code  Lc  keypad.o [1]
-setHighAllCol            0x800'0c59   0x26  Code  Lc  keypad.o [1]
-setLowAllCol             0x800'0c7f   0x26  Code  Lc  keypad.o [1]
-setup_mode               0x800'11f5  0x150  Code  Gb  setup_mode.o [1]
+resetRunMechineData      0x800'16d5   0x16  Code  Gb  common.o [1]
+restExVal                0x800'1517   0x46  Code  Lc  exercise_mode.o [1]
+rowCheck                 0x800'0cab   0x4a  Code  Lc  keypad.o [1]
+runMode                  0x800'1a55   0xec  Code  Gb  run_mode.o [1]
+runMode::stateReturn    0x2000'0020    0x1  Data  Lc  run_mode.o [1]
+setColX                  0x800'0c21   0x46  Code  Lc  keypad.o [1]
+setHighAllCol            0x800'0bd5   0x26  Code  Lc  keypad.o [1]
+setLowAllCol             0x800'0bfb   0x26  Code  Lc  keypad.o [1]
+setup_mode               0x800'1193  0x17e  Code  Gb  setup_mode.o [1]
 setup_mode::stateReturn
-                        0x2000'001c    0x1  Data  Lc  setup_mode.o [1]
-start_mode               0x800'1b0d   0x78  Code  Gb  start_mode.o [1]
+                        0x2000'0023    0x1  Data  Lc  setup_mode.o [1]
+start_mode               0x800'1b41   0x94  Code  Gb  start_mode.o [1]
 start_mode::stateReturn
-                        0x2000'001d    0x1  Data  Lc  start_mode.o [1]
-stopMode                 0x800'1b85   0x38  Code  Gb  stop_mode.o [1]
-tick                    0x2000'000c    0x4  Data  Lc  systick.o [1]
-timeScreenMinute         0x800'0a2d   0x4e  Code  Lc  screen.o [1]
-timeScreenSecond         0x800'09ef   0x3e  Code  Lc  screen.o [1]
-updateCalo               0x800'0abf   0x26  Code  Gb  screen.o [1]
-updateDistance           0x800'0a99   0x26  Code  Gb  screen.o [1]
-updateEx                 0x800'0b53   0x54  Code  Gb  screen.o [1]
-updateIncline            0x800'0ae5   0x46  Code  Gb  screen.o [1]
-updateSpeed              0x800'0b2b   0x28  Code  Gb  screen.o [1]
-updateTime               0x800'0a7b   0x1e  Code  Gb  screen.o [1]
-waittingScreen           0x800'0be1   0x78  Code  Gb  screen.o [1]
+                        0x2000'0024    0x1  Data  Lc  start_mode.o [1]
+stopMode                 0x800'1c55   0x38  Code  Gb  stop_mode.o [1]
+tick                    0x2000'0010    0x4  Data  Lc  systick.o [1]
+timeScreenMinute         0x800'09e9   0x3e  Code  Lc  screen.o [1]
+timeScreenSecond         0x800'09ab   0x3e  Code  Lc  screen.o [1]
+updateCalo               0x800'0a6b   0x26  Code  Gb  screen.o [1]
+updateDistance           0x800'0a45   0x26  Code  Gb  screen.o [1]
+updateEx                 0x800'0aff   0x54  Code  Gb  screen.o [1]
+updateIncline            0x800'0a91   0x46  Code  Gb  screen.o [1]
+updateSpeed              0x800'0ad7   0x28  Code  Gb  screen.o [1]
+updateTime               0x800'0a27   0x1e  Code  Gb  screen.o [1]
+waittingScreen           0x800'0b5d   0x78  Code  Gb  screen.o [1]
 write_address            0x800'024d   0x64  Code  Gb  lcd.o [1]
 write_command            0x800'01bd   0x90  Code  Gb  lcd.o [1]
 write_data               0x800'02b1   0x5e  Code  Gb  lcd.o [1]
 write_mode               0x800'011b   0xa2  Code  Gb  lcd.o [1]
 
 
-[1] = F:\Git\MOCK_Project\KhangFPT\sport1_mid_board\Project\Debug\Obj
+[1] = D:\Vitech\sport1_mid_board\Project\Debug\Obj
 [2] = dl7M_tln.a
 [3] = m7M_tl.a
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-  7'680 bytes of readonly  code memory
-     63 bytes of readonly  data memory
-  2'078 bytes of readwrite data memory
+  7'888 bytes of readonly  code memory
+     39 bytes of readonly  data memory
+  2'085 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

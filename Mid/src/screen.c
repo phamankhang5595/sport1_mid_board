@@ -64,8 +64,8 @@ static void timeScreenMinute(uint32_t minute)
     factorMinute[1]=minute/10+'0';
     lcd_send_data(&factorMinute[1],ADD_TIME_MINUTE_1);
     lcd_send_data(&factorMinute[0],ADD_TIME_MINUTE_0);
-    delay(5000);
-    clear_Dot(&factorMinute[0],ADD_TIME_MINUTE_0);
+/*     delay(5000);
+    clear_Dot(&factorMinute[0],ADD_TIME_MINUTE_0); */
 }
 
 void updateTime(uint32_t time)
