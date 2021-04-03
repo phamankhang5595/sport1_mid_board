@@ -8,11 +8,13 @@
  ******************************************************************************/
 /* mode setup  */
 uint8_t ModeState;
+/* count for blink */
+uint32_t CountForBlink;
 /*******************************************************************************
  * Definition
  ******************************************************************************/
 #define MAX_MODE    (2)
-
+#define BLINK_FREQ  (50000)
 /*******************************************************************************
  * Private func
  ******************************************************************************/
@@ -101,42 +103,30 @@ program_state_t setup_mode(run_mechine_data_t *mechineData)
         IsDataChanged = NO;
     }
 
-    while((key == NO_KEY)&&(ModeState < 3))
-    {              
-        switch(ModeState)
-        {
-        case 0:
-            updateTime(mechineData->runTime);
-            break;
-        case 1:
-            updateDistance(mechineData->distance);
-            break;
-        case 2:
-            updateCalo(mechineData->calo);
-            break;
-        default:
-            break;
-        }
-        key = delay_and_scand(300);
-        
-        if(key != NO_KEY)
-        {
-            break;
-        } 
+    /* blink led */
+    CountForBlink++;
+    if(CountForBlink == BLINK_FREQ)
+    {
         if (ModeState==0)
         {
-            lcd_clr_section(0,7);            
+            lcd_clr_section(0,1);
+            lcd_clr_section(8,3);
         }
-        if (ModeState == 1)
+        else if (ModeState == 1)
         {
             lcd_clr_section(14,3);
         }
-        if(ModeState == 2)
+        else if(ModeState == 2)
         {
             lcd_clr_section(20,3);
         }
-        key = delay_and_scand(300);
-    } 
+    }
+    else if(CountForBlink == 2*BLINK_FREQ)
+    {
+        IsDataChanged = YES;
+        CountForBlink=0;
+    }
+    
     /* Scan key */
     key = KEYPAD_ScanKey();
     switch(key)
