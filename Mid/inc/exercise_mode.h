@@ -7,7 +7,7 @@
 /*******************************************************************************
  * API
  ******************************************************************************/
-program_state_t exercise_mode(run_mechine_data_t *mechineData);
+program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *laststate);
 #endif
 /*******************************************************************************
  * EOF

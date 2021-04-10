@@ -33,10 +33,11 @@
 
 int main(void)
 {
+    program_state_t laststate = START;
     program_state_t state = START;
     run_mechine_data_t mechineData;
     mechineData.runEx = 1;
-    mechineData.speed = 1;
+    mechineData.speed = 0;
     mechineData.runTime = 0;
     mechineData.distance = 0;
     mechineData.incline = 0;
@@ -47,25 +48,25 @@ int main(void)
     SYSTICK_Init();
 	while(1)
     {
-       switch (state)
-       {
+        switch (state)
+        {
             case START:
-                state = start_mode(&mechineData);
-                break;
+                 state = start_mode(&mechineData,&laststate);
+                 break;
             case RUN:
-                state=runMode(&mechineData);
-                break;
+                 state=runMode(&mechineData,&laststate);
+                 break;
             case STOP:
-                state=stopMode(&mechineData);
-                break;
+                 state=stopMode(&mechineData,&laststate);
+                 break;
             case EXERCISE_SET:
-                state = exercise_mode(&mechineData);
-                break;
+                 state = exercise_mode(&mechineData,&laststate);
+                 break;
             case USER_SET:
-                state = setup_mode(&mechineData);
-                break;
+                 state = setup_mode(&mechineData,&laststate);
+                 break;
             default:
-                break;
-       }
+                 break;
+        }
 	}
 }

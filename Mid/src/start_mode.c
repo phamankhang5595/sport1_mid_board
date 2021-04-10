@@ -12,7 +12,7 @@
  * @param 
  * @param 
  */
-program_state_t start_mode(run_mechine_data_t *mechineData)
+program_state_t start_mode(run_mechine_data_t *mechineData, program_state_t *laststate)
 {
     static program_state_t stateReturn;
     char key = NO_KEY;
@@ -39,6 +39,7 @@ program_state_t start_mode(run_mechine_data_t *mechineData)
     else if(key == RUN_KEY)
     {
         IsDataChanged = YES;
+        *laststate = START;
         stateReturn = RUN;
     }
     else if(key == SETUP_KEY)

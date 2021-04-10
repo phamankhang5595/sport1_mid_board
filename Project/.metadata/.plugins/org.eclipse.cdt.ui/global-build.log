@@ -1,9 +1,0 @@
-23:20:53 **** Updating project f411test
-Project updated successfully
-
-23:20:54 **** Updating project f411test
-Error loading RTE configuration file 'f411test':
-ARMCM4 - Device is missing. Pack is not installed: ARM.CMSIS
-Project update failed
-Error updating RTE project
-

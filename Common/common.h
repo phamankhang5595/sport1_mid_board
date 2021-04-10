@@ -25,6 +25,7 @@ typedef struct
     uint8_t runEx;
     uint8_t incline;
 } run_mechine_data_t;
+
 /* define default value and maximum value of data */
 #define MAX_SPEED           (15)
 #define MAX_RUN_TIME        (5940)
@@ -52,7 +53,7 @@ typedef struct
 /*******************************************************************************
  * Variable
  ******************************************************************************/
-extern uint8_t IsDataChanged;
+extern volatile uint8_t IsDataChanged;
 /*******************************************************************************
  * API
  ******************************************************************************/

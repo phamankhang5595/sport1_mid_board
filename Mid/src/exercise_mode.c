@@ -36,7 +36,8 @@ static void blinkTimeLed()
 }
 static void restExVal(run_mechine_data_t *mechineData)
 {
-    mechineData->runTime = 30;
+    /* 30 min */
+    mechineData->runTime = 1800;
         switch(mechineData->runEx)
         {
             case 7:
@@ -62,7 +63,7 @@ static void restExVal(run_mechine_data_t *mechineData)
  * Code
  ******************************************************************************/
 
-program_state_t exercise_mode(run_mechine_data_t *mechineData)
+program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *laststate)
 {
     static program_state_t stateReturn;
     char key;
@@ -143,6 +144,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData)
             IsDataChanged = YES;
             IsFistTimeRun = YES;
             ResetVal      = YES;
+            *laststate     = EXERCISE_SET;
             stateReturn = RUN;
             break;
         default:

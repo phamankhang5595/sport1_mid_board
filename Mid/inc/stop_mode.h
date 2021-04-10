@@ -7,7 +7,7 @@
 /*******************************************************************************
  * API
  ******************************************************************************/
-program_state_t stopMode(run_mechine_data_t *mechineData);
+program_state_t stopMode(run_mechine_data_t *mechineData, program_state_t *laststate);
 #endif /* __STOP_MODE_H__ */
 /*******************************************************************************
  * EOF

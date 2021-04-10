@@ -15,17 +15,28 @@ void timer_2_init()
     timerBaseInit.TIM_CounterMode = TIM_CounterMode_Down;
     timerBaseInit.TIM_ClockDivision = TIM_CKD_DIV4;
     timerBaseInit.TIM_Prescaler = 72000000/10000 - 1;   /* Ftimer = 10KHz */
-    timerBaseInit.TIM_Period = 10000 - 1;                 /* 1s */
+    timerBaseInit.TIM_Period = 10000 - 1;               /* 1s */
     TIM_TimeBaseInit(TIM2, &timerBaseInit);
     TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-    TIM_Cmd(TIM2,ENABLE);
-    NVIC_EnableIRQ(28);
 }
 
 void timer_callback_init(p_callbackfunction callbackfunc)
 {
     tim_callback_func = callbackfunc;
 }
+
+void timer_2_start()
+{
+    TIM_Cmd(TIM2,ENABLE);
+    NVIC_EnableIRQ(TIM2_IRQn);
+}
+
+void timer_2_stop()
+{
+    TIM_Cmd(TIM2,DISABLE);
+    NVIC_DisableIRQ(TIM2_IRQn);
+}
+
 void TIM2_IRQHandler()
 {
     TIM_ClearFlag(TIM2,TIM_FLAG_Update);
