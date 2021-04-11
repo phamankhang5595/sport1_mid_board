@@ -514,8 +514,8 @@ void lcd_clr_section(uint8_t address, uint8_t size)
     GPIO_ResetBits(GPIOA,HT1621_CS);                                // CS = 0;   
     write_mode(DAT);   
     write_address(address);   
-       
-    for(i=0,j=address;i<size;i++,j+=2)   
+    j=address;
+    for(i=0;i<size;i++)   
     {      
         if(j==0)
         {
@@ -528,7 +528,8 @@ void lcd_clr_section(uint8_t address, uint8_t size)
         else
         {
             write_data(0x00);
-        }          
+        }
+        j+=2;          
     }      
     GPIO_SetBits(GPIOA,HT1621_CS);                                  //CS = 1;   
 }
