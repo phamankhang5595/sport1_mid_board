@@ -30,7 +30,6 @@
  * Code
  ******************************************************************************/
 
-
 int main(void)
 {
     program_state_t laststate = START;
@@ -54,15 +53,15 @@ int main(void)
                  state = start_mode(&mechineData,&laststate);
                  break;
             case RUN:
-                 state = runMode(&mechineData,&laststate);
+                 state = run_mode(&mechineData,&laststate);
                  break;
             case STOP:
-                 state = stopMode(&mechineData,&laststate);
+                 state = stop_mode(&mechineData,&laststate);
                  break;
             case EXERCISE_SET:
                  state = exercise_mode(&mechineData,&laststate);
                  break;
-            case USER_SET:
+            case SET_UP:
                  state = setup_mode(&mechineData,&laststate);
                  break;
             default:

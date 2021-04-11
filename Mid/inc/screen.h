@@ -9,7 +9,7 @@
 typedef enum 
 {
     RUN_TIME = 0,
-    SET_UP
+    SET_UP_MODE
 }State_Update_Data;
 /*******************************************************************************
  * API
@@ -28,13 +28,13 @@ void updateCalo(uint32_t cal);
 
 void updateIncline(uint8_t incl);
 
-void updateSpeed(float speed);
+void updateSpeed(uint32_t speed);
 
 void updateEx(uint8_t runEx);
 
 void mainScreen();
 
-void waittingScreen(run_mechine_data_t *mechineData);
+void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec);
 
 char delay_and_scand(uint32_t ms);
 #endif /*_SCREEN_H_*/

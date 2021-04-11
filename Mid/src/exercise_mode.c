@@ -7,7 +7,6 @@
  * Variable
  ******************************************************************************/
 static uint8_t  ResetVal;
-static uint8_t  IsFistTimeRun;
 static uint32_t CountForBlink;
 
 /*******************************************************************************
@@ -20,65 +19,28 @@ static uint32_t CountForBlink;
 * Private func
 *******************************************************************************/
 /*!
- * @brief 
+ * @brief function blink time led
  *
- * @param 
- * @param 
+ * @param None
+ * @return None
 */
-static void blinkTimeLed()
-{
-    CountForBlink++;
-    if(CountForBlink == BLINK_FREQ)
-    {
-        lcd_clr_section(0,1);
-        lcd_clr_section(8,3);
-    }
-    else if(CountForBlink == 2*BLINK_FREQ)
-    {
-        IsDataChanged = YES;
-        CountForBlink=0;
-    }
-}
+static void blinkTimeLed();
 
 /*!
- * @brief 
+ * @brief function reset all exercise info: TIME, EXE
  *
- * @param 
- * @param 
+ * @param mechineData  
 */
-static void resetExVal(run_mechine_data_t *mechineData)
-{
-    /* time: 30 min */
-    mechineData->runTime = 1800;
-    switch(mechineData->runEx)
-    {
-        case 7:
-            mechineData->incline = 2;
-            break;
-        case 10:
-            mechineData->incline = 9;
-            break;
-        case 11:
-            mechineData->incline = 9;
-            break;
-        case 12:
-            mechineData->incline = 2;
-            break;
-        default:
-            mechineData->incline = 0;
-            break;
-    }
-    updateIncline(mechineData->incline);
-    ResetVal = NO;
-}
+static void reset_ex_value(run_mechine_data_t *mechineData);
 /*******************************************************************************
  * Code
  ******************************************************************************/
 /*!
- * @brief 
+ * @brief The exercise mode
  *
- * @param 
- * @param 
+ * @param mechineData
+ * @param laststate 
+ * @return State of program
 */
 program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *laststate)
 {
@@ -87,7 +49,7 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *
     /* reset time, incline for new exercise*/
     if(ResetVal == YES)
     {
-        resetExVal(mechineData);
+        reset_ex_value(mechineData);
         ResetVal = NO;
     }
 
@@ -101,10 +63,10 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *
     }
 
     /* check first time run */
-    if(IsFistTimeRun == YES)
+    if(IsThisTheFirstTimeRun == YES)
     {
         while(KEYPAD_ScanKey()==EXE_KEY);
-        IsFistTimeRun = NO;
+        IsThisTheFirstTimeRun = NO;
     }
 
     blinkTimeLed();
@@ -152,24 +114,66 @@ program_state_t exercise_mode(run_mechine_data_t *mechineData, program_state_t *
             stateReturn = EXERCISE_SET;
             break;
         case STOP_KEY:
-            resetRunMechineData(mechineData);
+            reset_run_mechineData(mechineData);
             IsDataChanged = YES;
-            IsFistTimeRun = YES;
+            IsThisTheFirstTimeRun = YES;
             ResetVal      = YES;
             stateReturn = START;
             break;
         case RUN_KEY:
             IsDataChanged = YES;
-            IsFistTimeRun = YES;
+            IsThisTheFirstTimeRun = YES;
             ResetVal      = YES;
-            *laststate     = EXERCISE_SET;
+            
             stateReturn = RUN;
             break;
         default:
             stateReturn = EXERCISE_SET;
             break;
     }
+    *laststate = EXERCISE_SET;
     return (stateReturn);
+}
+
+static void blinkTimeLed()
+{
+    CountForBlink++;
+    if(CountForBlink == BLINK_FREQ)
+    {
+        lcd_clr_section(0,1);
+        lcd_clr_section(8,3);
+    }
+    else if(CountForBlink == 2*BLINK_FREQ)
+    {
+        IsDataChanged = YES;
+        CountForBlink=0;
+    }
+}
+
+static void reset_ex_value(run_mechine_data_t *mechineData)
+{
+    /* time: 30 min */
+    mechineData->runTime = 1800;
+    switch(mechineData->runEx)
+    {
+        case 7:
+            mechineData->incline = 2;
+            break;
+        case 10:
+            mechineData->incline = 9;
+            break;
+        case 11:
+            mechineData->incline = 9;
+            break;
+        case 12:
+            mechineData->incline = 2;
+            break;
+        default:
+            mechineData->incline = 0;
+            break;
+    }
+    updateIncline(mechineData->incline);
+    ResetVal = NO;
 }
 /*******************************************************************************
  * EOF

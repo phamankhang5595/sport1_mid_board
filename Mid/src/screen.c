@@ -178,7 +178,7 @@ void updateIncline(uint8_t incl)
     lcd_send_data(&factorIncline[0],ADD_INCL_1);
 }
 
-void updateSpeed(float speed)
+void updateSpeed(uint32_t speed)
 {
     unsigned char dataConvert[3];
     Screen_convertData(speed,dataConvert);
@@ -219,33 +219,30 @@ void mainScreen()
     }
 }
 
-void waittingScreen(run_mechine_data_t *mechineDate)
+void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec)
 {
-    uint8_t count=3;
-    char key;
     unsigned char ch;
     lcd_clr();
     updateCalo(mechineDate->calo);
     updateDistance(mechineDate->distance);
     updateIncline(mechineDate->incline);
     updateTime(mechineDate->runTime);
-    key=KEYPAD_ScanKey();
-    while((count)&&(key!=STOP_KEY))
+    while((*Sec<=3)&&(KEYPAD_ScanKey()!=STOP_KEY))
     {
-        switch(count)
+        switch(4-*Sec)
         {
-        case 3:
-            ch = 0x7a;
-            break;
-        case 2:
-            ch = 0x3e;
-            break;
-        case 1:
-            ch = 0x60;
-            break;
+            case 3:
+                ch = 0x7a;
+                break;
+            case 2:
+                ch = 0x3e;
+                break;
+            case 1:
+                ch = 0x60;
+                break;
+            default:
+                break;
         }
         lcd_show_data1(&ch,4);
-        key = delay_and_scand(500);
-        count--;
     }
 }

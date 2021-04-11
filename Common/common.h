@@ -10,7 +10,7 @@ typedef enum
     START,
     RUN,
     EXERCISE_SET,
-    USER_SET,
+    SET_UP,
     STOP,
     IDLE
 } program_state_t;
@@ -18,9 +18,9 @@ typedef enum
 /* program data for display and executes*/
 typedef struct
 {
-    float speed;
-    float distance;
-    float calo;
+    uint32_t speed;
+    uint32_t distance;
+    uint32_t calo;
     uint32_t runTime;
     uint8_t runEx;
     uint8_t incline;
@@ -30,8 +30,8 @@ typedef struct
 #define MAX_SPEED           (14)
 #define MAX_RUN_TIME        (5940)
 #define MAX_INCLINE         (15)
-#define MAX_CALO            (99)
-#define MAX_DISTANCE        (99)
+#define MAX_CALO            (9999)
+#define MAX_DISTANCE        (9999)
 #define MAX_RUN_EX          (12)
 
 #define MIN_SPEED           (15)
@@ -54,8 +54,9 @@ typedef struct
  * Variable
  ******************************************************************************/
 extern volatile uint8_t IsDataChanged;
+extern uint32_t IsThisTheFirstTimeRun;
 /*******************************************************************************
  * API
  ******************************************************************************/
-void resetRunMechineData(run_mechine_data_t *mechineData);
+void reset_run_mechineData(run_mechine_data_t *mechineData);
 #endif /* common.h */

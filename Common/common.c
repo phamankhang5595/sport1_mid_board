@@ -3,10 +3,11 @@
  * Variable
  ******************************************************************************/
 volatile uint8_t IsDataChanged = YES;
+uint32_t IsThisTheFirstTimeRun = YES;
 /*******************************************************************************
  * Code
  ******************************************************************************/
-void resetRunMechineData(run_mechine_data_t *mechineData)
+void reset_run_mechineData(run_mechine_data_t *mechineData)
 {
     mechineData->calo       = 0;
     mechineData->distance   = 0;

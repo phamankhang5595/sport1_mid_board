@@ -7,11 +7,12 @@
  * Code
  ******************************************************************************/
 /*!
- * @brief 
+ * @brief The start mode
  *
- * @param 
- * @param 
- */
+ * @param mechineData
+ * @param laststate 
+ * @return State of program
+*/
 program_state_t start_mode(run_mechine_data_t *mechineData, program_state_t *laststate)
 {
     static program_state_t stateReturn;
@@ -20,7 +21,7 @@ program_state_t start_mode(run_mechine_data_t *mechineData, program_state_t *las
     if(IsDataChanged == YES)
     {
         /* update screen */
-        resetRunMechineData(mechineData);
+        reset_run_mechineData(mechineData);
         /* update screen */
         updateSpeed(mechineData->speed);            /* Speed */
         updateCalo(mechineData->calo);              /* Calo */
@@ -39,16 +40,17 @@ program_state_t start_mode(run_mechine_data_t *mechineData, program_state_t *las
     else if(key == RUN_KEY)
     {
         IsDataChanged = YES;
-        *laststate = START;
         stateReturn = RUN;
     }
     else if(key == SETUP_KEY)
     {
         IsDataChanged = YES;
-        stateReturn = USER_SET;
+        stateReturn = SET_UP;
     }
     else
         stateReturn = START;
+    
+    *laststate = START;
     return (stateReturn);
 }
 /*******************************************************************************

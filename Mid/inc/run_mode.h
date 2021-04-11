@@ -4,7 +4,7 @@
 /*******************************************************************************
  * API
  ******************************************************************************/
-program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *laststate);
+program_state_t run_mode(run_mechine_data_t *mechineData, program_state_t *laststate);
 #endif
 /*******************************************************************************
  * EOF

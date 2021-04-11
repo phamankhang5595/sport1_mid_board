@@ -3154,25 +3154,4 @@
             <name>$PROJ_DIR$\..\Startup\stm32f10x_it.h</name>
         </file>
     </group>
-    <group>
-        <name>Utilities</name>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\debug.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\debug.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\queue.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\queue.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\xor.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\Utilities\xor.h</name>
-        </file>
-    </group>
 </project>
