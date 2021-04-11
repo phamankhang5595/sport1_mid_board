@@ -30,24 +30,21 @@ static void increase_val(run_mechine_data_t *mechineData)
 {
     if(ModeState == 0)
     {
-        if(mechineData->runTime < MAX_RUN_TIME)
-        {
-            mechineData->runTime += 60;
-        }
-        else
-            mechineData->runTime = MAX_RUN_TIME;            /* minimum runtime value */
+        mechineData->runTime += 60;
+        if(mechineData->runTime > MAX_RUN_TIME)
+            mechineData->runTime = 1;            /* maximum runtime value */
     }
     else if(ModeState == 1)
     {
         mechineData->distance += 1;
         if(mechineData->distance > MAX_DISTANCE)
-            mechineData->distance = MAX_DISTANCE;           /* maximum distance value */
+            mechineData->distance = 1;           /* maximum distance value */
     }
     else if(ModeState == 2)
     {
         mechineData->calo += 1;
         if(mechineData->calo > MAX_CALO)
-            mechineData->calo = MAX_CALO;                   /* maximum distance value */
+            mechineData->calo = 1;                   /* maximum distance value */
     }
 }
 
@@ -67,22 +64,44 @@ static void decrease_val(run_mechine_data_t *mechineData)
             mechineData->runTime -= 60;
         }
         else
-            mechineData->runTime = 0;            /* minimum runtime value */
+            mechineData->runTime = MAX_RUN_TIME;            /* minimum runtime value */
     }
     else if(ModeState == 1)
     {
         mechineData->distance -= 1;
         if(mechineData->distance < 1)
-            mechineData->distance = 1;           /* minimum distance value */
+            mechineData->distance = MAX_DISTANCE;           /* minimum distance value */
     }
     else if(ModeState == 2)
     {
         mechineData->calo -= 1;
         if(mechineData->calo < 1)
-            mechineData->calo = 1;               /* minimum distance value */
+            mechineData->calo = MAX_CALO;               /* minimum distance value */
     }
 }
 
+/*!
+ * @brief change data to default
+ *
+ * @param 
+ * @param 
+*/
+void changeDatatoDefaultVal(run_mechine_data_t *mechineData, uint8_t ModeState)
+{
+    switch (ModeState)
+    {
+        case 1:
+            mechineData->runTime = 0;
+            mechineData->distance = 1;
+            break;
+        case 2:
+            mechineData->distance = 0;
+            mechineData->calo = 50;
+            break;
+        default:
+            break;
+    }
+}
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -101,6 +120,7 @@ program_state_t setup_mode(run_mechine_data_t *mechineData, program_state_t *las
     {
         while(KEYPAD_ScanKey()==SETUP_KEY);
         IsFistTimeRun = NO;
+        mechineData->runTime = 900;/* default value 15 min */
     }
     /* Show screen */
     if(IsDataChanged == YES)
@@ -130,7 +150,6 @@ program_state_t setup_mode(run_mechine_data_t *mechineData, program_state_t *las
         CountForBlink=0;
     }
 
-    
     /* Scan key */
     key = KEYPAD_ScanKey();
     switch(key)
@@ -139,9 +158,7 @@ program_state_t setup_mode(run_mechine_data_t *mechineData, program_state_t *las
             while(KEYPAD_ScanKey()==SETUP_KEY);
             ModeState += 1;
             /* clear data */
-            mechineData->runTime  = 0;
-            mechineData->runTime  = 0;
-            mechineData->distance = 0;
+            changeDatatoDefaultVal(mechineData, ModeState);
             IsDataChanged = YES;
             stateReturn = USER_SET;
             break;

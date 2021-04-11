@@ -13,7 +13,7 @@
 /*******************************************************************************
  * Variable
  ******************************************************************************/
-uint32_t IsThisTheFirstRun = YES;
+static uint32_t IsThisTheFirstRun = YES;
 volatile uint32_t Sec;
 uint32_t CountDownFlag = FLAG_OFF;
 uint32_t ExeRunFlag = FLAG_OFF;
@@ -153,6 +153,8 @@ program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *lastst
             /* stop mode */
             IsDataChanged = YES;
             IsThisTheFirstRun = YES;
+            ExeRunFlag = FLAG_OFF;
+            CountDownFlag = FLAG_OFF;
             /* stop timer */
             timer_2_stop();
             Sec = 0;
@@ -245,9 +247,10 @@ program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *lastst
     if((Sec == 0) && (CountDownFlag))
     {
         /* stop mode */
-        IsDataChanged = YES;
+        IsDataChanged     = YES;
         IsThisTheFirstRun = YES;
-        CountDownFlag = FLAG_OFF;
+        CountDownFlag     = FLAG_OFF;
+        ExeRunFlag        = FLAG_OFF;
         /* stop timer */
         timer_2_stop();
         stateReturn = STOP;
