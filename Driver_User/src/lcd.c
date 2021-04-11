@@ -496,7 +496,7 @@ void lcd_send_data(unsigned char *data,uint8_t address)
                 show_buf[i] = 0xff;
                 break;
         }
-        if(address==8||address==12||address==22||address==14         
+        if(address==8||address==12||address==22||address==14        
            ||address==24)
         {
             show_buf[i] |= 0x08;
@@ -506,6 +506,60 @@ void lcd_send_data(unsigned char *data,uint8_t address)
     lcd_show_data1(show_buf,address);  
 }
 
+void lcd_send_data1(unsigned char* data,uint8_t address)
+{
+    char i = 0 ;   
+    unsigned char show_buf[SIZE_BUFF]={'\0'};   
+     
+    while(data[i]!='\0')                                             //ȡǰ��λ��ʾ��   
+    {   
+        switch(data[i])   
+        {   
+            case '0':                    
+                show_buf[i] = 0xd7;                
+                break;   
+            case '1':
+                show_buf[i] = 0x06;             
+                break;   
+            case '2':
+                show_buf[i] = 0xe3;                
+                break;   
+            case '3':
+                show_buf[i] = 0xa7;                
+                break;   
+            case '4':
+                show_buf[i] = 0x36;               
+                break;   
+            case '5':
+                show_buf[i] = 0xb5;              
+                break;   
+            case '6':
+                show_buf[i] = 0xf5;              
+                break;   
+            case '7':
+                show_buf[i] = 0x07;                 
+                break;   
+            case '8':
+                show_buf[i] = 0xf7;                
+                break;   
+            case '9':
+                show_buf[i] = 0xb7;                
+                break;
+            case 'P':
+                show_buf[i] = 0x37;
+                break;
+            default:
+                show_buf[i] = 0xff;
+                break;
+        }
+        if(address==16)
+        {
+            show_buf[i] |= 0x08;
+        }
+        i++;       
+    }
+    lcd_show_data1(show_buf,address);
+}
 
 void lcd_clr_section(uint8_t address, uint8_t size)
 {   

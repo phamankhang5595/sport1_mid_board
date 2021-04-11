@@ -22,9 +22,9 @@ void display_Set(unsigned char *data,uint8_t address);
 
 void updateTime(uint32_t time);
 
-void updateDistance(float dis);
+void updateDistance(uint32_t dis);
 
-void updateCalo(float cal);
+void updateCalo(uint32_t cal);
 
 void updateIncline(uint8_t incl);
 

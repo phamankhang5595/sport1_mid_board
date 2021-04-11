@@ -7,14 +7,27 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
-static void Screen_convertData(float dataIn, unsigned char* dataOut)
+
+static void Screen_convertData(uint32_t dataIn, unsigned char* dataOut)
 {
     int i;
     uint32_t ch[3];
-    uint32_t b = (uint32_t)(dataIn * 10);
-    ch[0]=b/100 ;
-    ch[1]=(b-ch[0]*100)/10;
-    ch[2]=(b-ch[0]*100-ch[1]*10);
+    ch[0]=dataIn/100 ;
+    ch[1]=(dataIn-ch[0]*100)/10;
+    ch[2]=(dataIn-ch[0]*100-ch[1]*10);
+    for(i=0;i<3;i++)
+    {
+        dataOut[i]=ch[i]+'0';
+    }
+}
+
+static void Screen_convertData1(uint32_t dataIn, unsigned char* dataOut)
+{
+    int i;
+    uint32_t ch[3];
+    ch[0]=dataIn/1000 ;
+    ch[1]=(dataIn-ch[0]*1000)/100;
+    ch[2]=(dataIn-ch[0]*1000-ch[1]*100)/10;
     for(i=0;i<3;i++)
     {
         dataOut[i]=ch[i]+'0';
@@ -103,8 +116,6 @@ void display_Set(unsigned char *data,uint8_t address)
     }
 }
 
-
-
 void updateTime(uint32_t time)
 {
     uint32_t minute=time/60;
@@ -114,27 +125,49 @@ void updateTime(uint32_t time)
 }
 
 
-void updateDistance(float dis)
-{
+void updateDistance(uint32_t dis)
+{    
     unsigned char dataConvert[3];
-    Screen_convertData(dis,dataConvert);
-    for(int i = 0; i <3 ; i++)
+    
+    if ((uint32_t)dis < (uint32_t)1000)
     {
-        lcd_send_data(&dataConvert[i],ADD_DIS_0+2*i);
+        Screen_convertData(dis,dataConvert);
+        for(int i = 0; i < 3 ; i++)
+        {
+            lcd_send_data(&dataConvert[i],ADD_DIS_0+2*i);      
+        }
     }
+    else
+    {
+        Screen_convertData1(dis,dataConvert);
+        for(int i = 0; i < 3 ; i++)
+        {
+            lcd_send_data1(&dataConvert[i],ADD_DIS_0+2*i);      
+        }
+    }     
 }
 
-
-void updateCalo(float cal)
+void updateCalo(uint32_t cal)
 {
     unsigned char dataConvert[3];
-    Screen_convertData(cal,dataConvert);
-    for(int i = 0; i <3 ; i++)
+    
+    if ((uint32_t)cal < (uint32_t)1000)
     {
-        lcd_send_data(&dataConvert[i],ADD_CAL_0+2*i);
+        Screen_convertData(cal,dataConvert);
+        for(int i = 0; i < 3 ; i++)
+        {
+            lcd_send_data(&dataConvert[i],ADD_CAL_0+2*i);      
+        }
+    }
+    else
+    {
+        Screen_convertData1(cal,dataConvert);
+        for(int i = 0; i < 3 ; i++)
+        {
+            lcd_send_data1(&dataConvert[i],ADD_CAL_0+2*i);      
+        }
     }
 }
-
 
 void updateIncline(uint8_t incl)
 {
