@@ -18,9 +18,9 @@ typedef enum
 /* program data for display and executes*/
 typedef struct
 {
-    float speed;
-    float distance;
-    float calo;
+    uint32_t speed;
+    uint32_t distance;
+    uint32_t calo;
     uint32_t runTime;
     uint8_t runEx;
     uint8_t incline;
@@ -30,8 +30,8 @@ typedef struct
 #define MAX_SPEED           (14)
 #define MAX_RUN_TIME        (5940)
 #define MAX_INCLINE         (15)
-#define MAX_CALO            (99)
-#define MAX_DISTANCE        (99)
+#define MAX_CALO            (9999)
+#define MAX_DISTANCE        (9999)
 #define MAX_RUN_EX          (12)
 
 #define MIN_SPEED           (15)

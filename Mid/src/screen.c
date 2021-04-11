@@ -178,7 +178,7 @@ void updateIncline(uint8_t incl)
     lcd_send_data(&factorIncline[0],ADD_INCL_1);
 }
 
-void updateSpeed(float speed)
+void updateSpeed(uint32_t speed)
 {
     unsigned char dataConvert[3];
     Screen_convertData(speed,dataConvert);

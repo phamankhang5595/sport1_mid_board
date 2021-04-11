@@ -7,7 +7,7 @@
 /*******************************************************************************
 * Definition
 *******************************************************************************/
-#define DEFAULT_RUN_SPEED   2
+#define DEFAULT_RUN_SPEED   20
 #define FLAG_OFF            0
 #define FLAG_ON             1
 /*******************************************************************************
@@ -120,6 +120,7 @@ program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *lastst
         timer_2_init();
         timer_callback_init(countSec);
         /* screen countdown 3s */
+        /* fix bang cach cho sang 1 mode wait */
         waittingScreen(mechineData);
         /* turn flag */
         checkLastStateAndTurnFlag(mechineData,laststate);
@@ -197,14 +198,14 @@ program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *lastst
             stateReturn = RUN;
             break;
         case PLUS_KEY:
-            mechineData->speed += 0.1;
-            if(mechineData->speed >= 15)
-                mechineData->speed = 15;
+            mechineData->speed += 1;
+            if(mechineData->speed >= 150)
+                mechineData->speed = 150;
             IsDataChanged = YES;
             stateReturn = RUN;
             break;
         case MINUS_KEY:
-            mechineData->speed -= 0.1;
+            mechineData->speed -= 1;
             if(mechineData->speed <= 1)
                 mechineData->speed = 1;
             IsDataChanged = YES;
@@ -234,10 +235,10 @@ program_state_t runMode(run_mechine_data_t *mechineData, program_state_t *lastst
             changeMoment = Sec*14/15;
             mechineData->speed   += (Execrise[mechineData->runEx - 1][numberOfChange] >> 4) & 0x0F;
             mechineData->incline += (Execrise[mechineData->runEx - 1][numberOfChange]) & 0x0F;
-            if( ((uint32_t)(mechineData->speed)) >= 15)
-                mechineData->speed = 15;
+            if( ((uint32_t)(mechineData->speed)) >= 150)
+                mechineData->speed = 150;
             if(mechineData->incline > 12)
-                mechineData->incline == 12;
+                mechineData->incline = 12;
             numberOfChange ++;
             IsDataChanged = YES;
         }

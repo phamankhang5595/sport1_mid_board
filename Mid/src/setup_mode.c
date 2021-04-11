@@ -36,15 +36,15 @@ static void increase_val(run_mechine_data_t *mechineData)
     }
     else if(ModeState == 1)
     {
-        mechineData->distance += 1;
+        mechineData->distance += 10;
         if(mechineData->distance > MAX_DISTANCE)
             mechineData->distance = 1;           /* maximum distance value */
     }
     else if(ModeState == 2)
     {
-        mechineData->calo += 1;
+        mechineData->calo += 10;
         if(mechineData->calo > MAX_CALO)
-            mechineData->calo = 1;                   /* maximum distance value */
+            mechineData->calo = 10;                   /* maximum distance value */
     }
 }
 
@@ -68,15 +68,17 @@ static void decrease_val(run_mechine_data_t *mechineData)
     }
     else if(ModeState == 1)
     {
-        mechineData->distance -= 1;
+        mechineData->distance -= 10;
         if(mechineData->distance < 1)
             mechineData->distance = MAX_DISTANCE;           /* minimum distance value */
     }
     else if(ModeState == 2)
     {
-        mechineData->calo -= 1;
-        if(mechineData->calo < 1)
+      
+        if(mechineData->calo == 0)
             mechineData->calo = MAX_CALO;               /* minimum distance value */
+        else
+            mechineData->calo -= 10;
     }
 }
 
@@ -92,11 +94,11 @@ void changeDatatoDefaultVal(run_mechine_data_t *mechineData, uint8_t ModeState)
     {
         case 1:
             mechineData->runTime = 0;
-            mechineData->distance = 1;
+            mechineData->distance = 100;
             break;
         case 2:
             mechineData->distance = 0;
-            mechineData->calo = 50;
+            mechineData->calo = 500;
             break;
         default:
             break;

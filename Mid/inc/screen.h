@@ -28,7 +28,7 @@ void updateCalo(uint32_t cal);
 
 void updateIncline(uint8_t incl);
 
-void updateSpeed(float speed);
+void updateSpeed(uint32_t speed);
 
 void updateEx(uint8_t runEx);
 
