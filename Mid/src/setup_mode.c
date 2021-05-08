@@ -127,7 +127,6 @@ program_state_t setup_mode(run_mechine_data_t *mechineData, program_state_t *las
         case RUN_KEY:
             IsDataChanged = YES;
             IsThisTheFirstTimeRun = YES;
-            
             stateReturn = RUN;
             break;
         case STOP_KEY:

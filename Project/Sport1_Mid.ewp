@@ -356,6 +356,7 @@
                     <state>$PROJ_DIR$\..\Common</state>
                     <state>$PROJ_DIR$\..\Mid\inc</state>
                     <state>$PROJ_DIR$\..\Mid\src</state>
+                    <state>$PROJ_DIR$\..\Mid\Control</state>
                     <state>$PROJ_DIR$\..\Device</state>
                 </option>
                 <option>
@@ -2125,7 +2126,13 @@
     <group>
         <name>App</name>
         <file>
+            <name>$PROJ_DIR$\..\App\board.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\App\main.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\App\stm32f10x_it.c</name>
         </file>
     </group>
     <group>
@@ -2362,6 +2369,15 @@
             </file>
         </group>
         <group>
+            <name>softuart</name>
+            <file>
+                <name>$PROJ_DIR$\..\Driver_User\src\softuart.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Driver_User\inc\softuart.h</name>
+            </file>
+        </group>
+        <group>
             <name>systick</name>
             <file>
                 <name>$PROJ_DIR$\..\Driver_User\src\systick.c</name>
@@ -2371,12 +2387,21 @@
             </file>
         </group>
         <group>
-            <name>timer2</name>
+            <name>timer3</name>
             <file>
-                <name>$PROJ_DIR$\..\Driver_User\src\timer2.c</name>
+                <name>$PROJ_DIR$\..\Driver_User\src\timer3.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\Driver_User\inc\timer2.h</name>
+                <name>$PROJ_DIR$\..\Driver_User\inc\timer3.h</name>
+            </file>
+        </group>
+        <group>
+            <name>uart</name>
+            <file>
+                <name>$PROJ_DIR$\..\Driver_User\src\uart.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Driver_User\inc\uart.h</name>
             </file>
         </group>
     </group>
@@ -2386,6 +2411,9 @@
             <name>inc</name>
             <file>
                 <name>$PROJ_DIR$\..\Mid\inc\exercise_mode.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\inc\power_communicate.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\Mid\inc\run_mode.h</name>
@@ -2407,6 +2435,9 @@
             <name>src</name>
             <file>
                 <name>$PROJ_DIR$\..\Mid\src\exercise_mode.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Mid\src\power_communicate.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\Mid\src\run_mode.c</name>
@@ -2435,6 +2466,21 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\Startup\stm32f10x_it.h</name>
+        </file>
+    </group>
+    <group>
+        <name>utiliti</name>
+        <file>
+            <name>$PROJ_DIR$\..\Utilities\queue.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Utilities\queue.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Utilities\xor.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Utilities\xor.h</name>
         </file>
     </group>
 </project>

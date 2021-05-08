@@ -219,7 +219,7 @@ void mainScreen()
     }
 }
 
-void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec)
+/* void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec)
 {
     unsigned char ch;
     lcd_clr();
@@ -245,4 +245,4 @@ void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec)
         }
         lcd_show_data1(&ch,4);
     }
-}
+} */

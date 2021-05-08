@@ -23,9 +23,22 @@
 #include "stop_mode.h"
 #include "screen.h"
 #include "lcd.h"
+#include "power_communicate.h"
+#include "stm32f10x_usart.h"
+
+
+run_mechine_data_t mechineData;
 /*******************************************************************************
  * Definition
  ******************************************************************************/
+/*******************************************************************************
+* 
+*******************************************************************************/
+void uart_callback()
+{
+    mechineData.speed += 1;
+    IsDataChanged = YES;
+}
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -34,7 +47,6 @@ int main(void)
 {
     program_state_t laststate = START;
     program_state_t state = START;
-    run_mechine_data_t mechineData;
     mechineData.runEx = 1;
     mechineData.speed = 0;
     mechineData.runTime = 0;
@@ -45,27 +57,29 @@ int main(void)
     lcd_clr();
     KEYPAD_Init();
     SYSTICK_Init();
-	while(1)
+    power_com_init();
+    while(1)
     {
+        /* prog interrup check connetion */
         switch (state)
         {
             case START:
-                 state = start_mode(&mechineData,&laststate);
-                 break;
+                state = start_mode(&mechineData,&laststate);
+                break;
             case RUN:
-                 state = run_mode(&mechineData,&laststate);
-                 break;
+                state = run_mode(&mechineData,&laststate);
+                break;
             case STOP:
-                 state = stop_mode(&mechineData,&laststate);
-                 break;
+                state = stop_mode(&mechineData,&laststate);
+                break;
             case EXERCISE_SET:
-                 state = exercise_mode(&mechineData,&laststate);
-                 break;
+                state = exercise_mode(&mechineData,&laststate);
+                break;
             case SET_UP:
-                 state = setup_mode(&mechineData,&laststate);
-                 break;
+                state = setup_mode(&mechineData,&laststate);
+                break;
             default:
-                 break;
+                break;
         }
 	}
 }

@@ -37,4 +37,5 @@ void lcd_clr_section(uint8_t address, uint8_t size);
 void lcd_show_data1(unsigned char *puts,uint8_t address)  ;
 void lcd_send_data(unsigned char *data,uint8_t address) ;
 void lcd_send_data1(unsigned char *data,uint8_t address) ;
+void lcd_tone();
 #endif

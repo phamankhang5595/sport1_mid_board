@@ -230,13 +230,14 @@ void lcd_init( void )                                               //ï¿½ï¿½Ê¼ï¿
     write_command(0x01);    //Enable System   
     write_command(0x03);    //Enable Bias   
     write_command(0x04);    //Disable Timer   
-    write_command(0x05);    //Disable WDT   
+    write_command(0x05);    //Disable WDT  
+    write_command(0x09);
     write_command(0x08);    //Tone OFF   
     write_command(0x18);    //on-chip RCï¿½ï¿½   
     write_command(0x29);    //1/4Duty 1/3Bias   
     write_command(0x80);    //Disable IRQ   
     write_command(0x40);    //Tone Frequency 4kHZ   
-    write_command(0xE3);    //Normal Mode   
+    write_command(0xE3);    //Normal Mode
     GPIO_SetBits(GPIOA,HT1621_CS);                                  //CS = 1;   
 }   
 /*  
@@ -372,7 +373,7 @@ void lcd_show_data1(unsigned char *puts,uint8_t address)
     for(i=0;i<SIZE_BUFF;i++)   
     {   
         write_data(puts[i]);   
-        delay(4);   
+        delay(1);   
     }   
     GPIO_SetBits(GPIOA,HT1621_CS);                                  //CS = 1;   
 }
@@ -586,5 +587,16 @@ void lcd_clr_section(uint8_t address, uint8_t size)
         j+=2;          
     }      
     GPIO_SetBits(GPIOA,HT1621_CS);                                  //CS = 1;   
+}
+
+void lcd_tone()
+{
+    GPIO_ResetBits(GPIOA,HT1621_CS);                                //CS = 0;
+    write_mode(COM);
+    write_command(0x09);
+    delay(50);
+    write_command(0x08);
+    write_mode(DAT);
+    GPIO_SetBits(GPIOA,HT1621_CS);                                //CS = 1;
 }
 /***************************************************end file*************************************************/   

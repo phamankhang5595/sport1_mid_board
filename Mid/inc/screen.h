@@ -34,7 +34,5 @@ void updateEx(uint8_t runEx);
 
 void mainScreen();
 
-void waittingScreen(run_mechine_data_t *mechineDate, volatile uint32_t *Sec);
-
 char delay_and_scand(uint32_t ms);
 #endif /*_SCREEN_H_*/

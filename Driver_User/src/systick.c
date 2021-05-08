@@ -43,7 +43,7 @@ void SYSTICK_Delay_ms(uint32_t time_ms)
     static uint32_t t0, t1;
     t0 = SYSTICK_Get_Tick();
     t1 = SYSTICK_Get_Tick();
-    if(t0 < MAXTICK - time_ms)
+    if(t0 < (MAXTICK - time_ms))
     {
         while(t1 - t0 < time_ms)
         {
