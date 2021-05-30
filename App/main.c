@@ -27,6 +27,7 @@
 #include "screen.h"
 #include "power_communicate.h"
 #include "stm32f10x_usart.h"
+#include "dfplayer.h"
 
 /*******************************************************************************
 * Variable
@@ -46,7 +47,7 @@ void CheckSafeKey()
 /*******************************************************************************
  * Code
  ******************************************************************************/
-int main(void)
+ int main(void)
 {
     program_state_t laststate = START;
     program_state_t state = START;
@@ -60,6 +61,8 @@ int main(void)
     SCREEN_Clear();
     KEYPAD_Init();
     POWER_COM_Init();
+    DF_Init(20);
+    DF_PlayFromStart();
     //SAFETY_CHECK_Init();
     while(1)
     {

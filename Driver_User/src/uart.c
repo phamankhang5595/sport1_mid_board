@@ -15,16 +15,25 @@ UART_HandleTypeDef    UART2_CallbackFunc = NULL;
 void UART_PinInit(USART_TypeDef* USARTx)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
-    GPIO_PinRemapConfig(GPIO_Remap_USART1,ENABLE);
-    /*Config USART1 Rx as input floating */
-    GPIO_InitStructure.GPIO_Pin = POWER_COM_RxPIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_Init(POWER_COM_GPIO, &GPIO_InitStructure);
-    /*Config USART1 Tx as alternate function pp*/
-    GPIO_InitStructure.GPIO_Pin = POWER_COM_TxPIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_Init(POWER_COM_GPIO, &GPIO_InitStructure);
+    if(USARTx == USART1)
+    {
+        GPIO_PinRemapConfig(GPIO_Remap_USART1,ENABLE);
+        /*Config USART1 Rx as input floating */
+        GPIO_InitStructure.GPIO_Pin = POWER_COM_RxPIN;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+        GPIO_Init(POWER_COM_GPIO, &GPIO_InitStructure);
+        /*Config USART1 Tx as alternate function pp*/
+        GPIO_InitStructure.GPIO_Pin = POWER_COM_TxPIN;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+        GPIO_Init(POWER_COM_GPIO, &GPIO_InitStructure);
+    }
+    else if(USARTx == USART2)
+    {
+        GPIO_InitStructure.GPIO_Pin = DF_TxPIN;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+        GPIO_Init(DF_GPIO, &GPIO_InitStructure);
+    }
 }
 
 void UART_ClockInit(USART_TypeDef* USARTx)
@@ -40,10 +49,10 @@ void UART_ClockInit(USART_TypeDef* USARTx)
     }
     else if(USARTx == USART2)
     {
-//        /*Enable GPIO clock*/
-//        RCC_APB2PeriphClockCmd(DF_GPIO_CLK, ENABLE);
-//        /*Enable UART clock*/
-//        RCC_APB1PeriphClockCmd(DF_CLK, ENABLE);
+        /*Enable GPIO clock*/
+        //RCC_APB2PeriphClockCmd(DF_GPIO_CLK, ENABLE);
+        /*Enable UART clock*/
+        RCC_APB1PeriphClockCmd(DF_CLK, ENABLE);
     }
 }
 
@@ -52,7 +61,7 @@ void UART_Init(USART_TypeDef* USARTx, u32 baudrate, u16 mode)
 {
     USART_InitTypeDef USART_InitStructure;
     UART_ClockInit(USARTx);
-    //UART_PinInit(USARTx);
+    UART_PinInit(USARTx);
     
     /*UARTx Config*/
     USART_InitStructure.USART_BaudRate = baudrate;
@@ -86,8 +95,9 @@ void UART_SendData(USART_TypeDef* USARTx, uint8_t* buff, uint8_t len)
 {
     for(uint8_t i = 0; i < len; i++)
     {
+        
+        while(USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET);
         USART_SendData(USARTx, buff[i]);
-        while(USART_GetFlagStatus(USARTx, USART_FLAG_TXE) == RESET);
     }
 }
 

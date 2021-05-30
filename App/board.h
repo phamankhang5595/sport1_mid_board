@@ -29,6 +29,16 @@
 #define SAFE_KEY_TIMER              TIM2
 #define SAFE_KEY_TIMER_CLK          RCC_APB1Periph_TIM2
 #define SAFE_KEY_GPIO_CLK           RCC_APB2Periph_GPIOB
+
+/* DF */
+
+#define DF_UART              USART2
+#define DF_IRQn              USART2_IRQn
+#define DF_GPIO              GPIOA
+#define DF_RxPIN             GPIO_Pin3
+#define DF_TxPIN             GPIO_Pin_2
+#define DF_GPIO_CLK          RCC_APB2Periph_GPIOA
+#define DF_CLK               RCC_APB1Periph_USART2
 #endif /* __BOARD__ */
 /*******************************************************************************
 * EOF

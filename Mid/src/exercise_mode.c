@@ -1,7 +1,9 @@
-#include "exercise_mode.h"
 #include "keypad.h"
 #include "screen.h"
 #include "systick.h"
+#include "dfplayer.h"
+#include "exercise_mode.h"
+
 /*******************************************************************************
  * Variable
  ******************************************************************************/
@@ -76,7 +78,9 @@ program_state_t exercise_mode(run_mechine_data_t *treadmillData, program_state_t
     switch (key)
     {
         case EXE_KEY:
-            while(KEYPAD_ScanKey()==EXE_KEY);
+            DF_Next();
+            while(
+                  KEYPAD_ScanKey()==EXE_KEY);
             treadmillData->runEx += 1;
             if(treadmillData->runEx > MAX_RUN_EX)
                 treadmillData->runEx = DEFAULT_RUN_EX;
